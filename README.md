@@ -1,8 +1,1 @@
-template for webpack project
-ESLINT
-Prettier
-Webpack
-Import CSS
-Assets
-npm run build
-npm run dev
+Todo list app created with HTML, CSS and JS.
