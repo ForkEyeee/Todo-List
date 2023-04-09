@@ -7,7 +7,7 @@ const Project = function (projName, projDesc, projDueDate, projPriority) {
 const projects = [];
 
 const addProjects = function () {
-  projects.push(new Project('Enter Project Name'));
+  projects.push(new Project('Enter Project Name')); //This would be an input value
 //  console.log(projects);
   return { projects };
 };
