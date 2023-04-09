@@ -9,8 +9,9 @@ const Project = function (projName, projDesc, projDueDate, projPriority) {
     { priority: projPriority },
   ];
 };
+
 const projects = [];
-const addProjects = function () {
+const addProject = function () {
   projects.push(
     new Project('Enter project name', 'testing', 'testing2', 'testing3')
   ); // This would be an input value
@@ -18,6 +19,6 @@ const addProjects = function () {
   return { projects };
 };
 
-export { addProjects };
+export { addProject, projects };
 
 // Project - Projname, id, todoitgems

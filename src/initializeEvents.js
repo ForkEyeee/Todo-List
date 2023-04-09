@@ -1,8 +1,8 @@
-import { addProjects } from "./createProject";
+import { addProject } from './createProject';
 
 const initializeEvents = (function () {
   const addBtn = document.getElementById('addBtn');
-  addBtn.addEventListener('click', addProjects);
+  addBtn.addEventListener('click', addProject);
 })();
 
 export { initializeEvents };

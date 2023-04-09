@@ -1,6 +1,6 @@
 import './styles/main.css';
 import { initializeEvents } from './initializeEvents';
-import { addProjects, projects } from './createProject';
+import { addProject, projects } from './createProject';
 // import { addTodo } from './createTodo';
 
 // This is to store input values in an object
