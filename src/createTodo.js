@@ -1,3 +1,17 @@
+import { addProjects } from './createProject';
+
+const addTodo = function () {
+  const myTodos = addProjects();
+	myTodos.projects[myTodos.projects.length - 1].projDesc = "testing"
+	myTodos.projects[myTodos.projects.length - 1].projDueDate = "testing2"
+	myTodos.projects[myTodos.projects.length - 1].projPriority = "testing3"
+
+	  console.log(myTodos);
+  return { myTodos };
+};
+
+export { addTodo };
+
 // const myTodos = [];
 
 // const getInputValues = function () {

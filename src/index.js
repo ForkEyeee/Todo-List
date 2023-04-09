@@ -1,29 +1,8 @@
 import './styles/main.css';
+import { addProjects, projects } from './createProject';
+import { initializeEvents } from './initializeEvents';
 
-const Project = function (projName, projDesc, projDueDate, projPriority) {
-  this.projName = projName;
-  this.projDesc = projDesc;
-  this.projDueDate = projDueDate;
-  this.projPriority = projPriority;
-};
 
-const addProjects = function () {
-  const projects = [];
-  projects.push(new Project('Enter Project Name'));
-  console.log(projects);
-  return { projects };
-};
-
-const addTodo = function () {
-  const myTodos = addProjects();
-  console.log(myTodos);
-  return { myTodos };
-};
-
-const initializeEvents = (function () {
-  const addBtn = document.getElementById('addBtn');
-  addBtn.addEventListener('click', addProjects);
-})();
 
 // This is to store input values in an object
 // myProjects.push(getInputValues);
