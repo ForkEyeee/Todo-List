@@ -1,8 +1,8 @@
-import { addProject } from './createProject';
+import { ProjectsManager } from './createProject';
 
 const initializeEvents = (function () {
   const addBtn = document.getElementById('addBtn');
-  addBtn.addEventListener('click', addProject);
+  addBtn.addEventListener('click', ProjectsManager);
 })();
 
 export { initializeEvents };
