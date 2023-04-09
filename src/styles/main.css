@@ -56,14 +56,37 @@ h1 {
 }
 
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: flex-start;
-  gap: 5rem;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: flex-start;
+	gap: 2rem;
+	align-items: center;
+	width: 400px;
+	background-color: #ddd;
 }
 
 .sidebar-info {
   margin-right: 50px;
 }
+
+.sidebar-calendar {
+	margin-top: 50px;
+}
+
+.sidebar-item {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 126px;
+}
+
+.sidebar-item i {
+	padding-right: 10px;
+}
+
+.sidebar-projects h2 {
+	position: relative;
+    left: -20px;
+}
+
