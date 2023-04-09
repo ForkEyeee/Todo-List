@@ -1,15 +1,23 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const Project = function (projName, projDesc, projDueDate, projPriority) {
   this.projName = projName;
-  this.projDesc = projDesc;
-  this.projDueDate = projDueDate;
-  this.projPriority = projPriority;
+  this.id = uuidv4();
+  this.todoItems = [
+    { desc: projDesc },
+    { duedate: projDueDate },
+    { priority: projPriority },
+  ];
 };
 const projects = [];
-
 const addProjects = function () {
-  projects.push(new Project('Enter Project Name')); //This would be an input value
-//  console.log(projects);
+  projects.push(
+    new Project('Enter project name', 'testing', 'testing2', 'testing3')
+  ); // This would be an input value
+  console.log(projects);
   return { projects };
 };
 
 export { addProjects };
+
+// Project - Projname, id, todoitgems

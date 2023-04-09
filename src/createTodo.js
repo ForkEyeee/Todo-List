@@ -1,25 +1,15 @@
-import { addProjects } from './createProject';
+// import { addProjects } from './createProject';
 
-const addTodo = function () {
-  const myTodos = addProjects();
-	myTodos.projects[myTodos.projects.length - 1].projDesc = "testing"  // these would be the input values
-	myTodos.projects[myTodos.projects.length - 1].projDueDate = "testing2"
-	myTodos.projects[myTodos.projects.length - 1].projPriority = "testing3"
-	  console.log(myTodos);
-  return { myTodos };
-};
+// const addTodo = function () {
+//   const myTodos = addProjects('Enter project name');
+//   myTodos.projects[myTodos.projects.length - 1].todoItems[0] = 'testing'; // these would be the input values
+//   myTodos.projects[myTodos.projects.length - 1].todoItems[1] = 'testing2';
+//   myTodos.projects[myTodos.projects.length - 1].todoItems[2] = 'testing3';
+//   console.log(myTodos);
+//   return { myTodos };
+// };
 
-export { addTodo };
-
-
-
-
-
-
-
-
-
-
+// export { addTodo };
 
 // const myTodos = [];
 
