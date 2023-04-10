@@ -1,12 +1,10 @@
 // index.js
 import './styles/main.css';
-// import { initializeEvents } from './initializeEventListeners';
+import { initializeEvents } from './initializeEventListeners';
 import { addProject } from './projectFunctions';
 import { addDOMSidebar, addDOMContainer } from './modifyDOM';
 
+initializeEvents();
 
-addProject()
-addDOMSidebar()
-addDOMContainer()
 
-// initializeEvents();
+
