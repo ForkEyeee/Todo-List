@@ -14,10 +14,12 @@ const Project = function (projName, projDesc, projDueDate, projPriority) {
 };
 
 const addProject = function () {
-  projects.push(
-    new Project('Enter project name', 'testing', 'testing2', 'testing3')
-  ); // This would be an input value
+  projects.push(new Project('Enter project name', 'testing', 'testing2', 'testing3')); // This would be an input value
   console.log(projects);
 };
 
-export { addProject };
+const getProjects = function () {
+  return projects;
+};
+
+export { addProject, getProjects };
