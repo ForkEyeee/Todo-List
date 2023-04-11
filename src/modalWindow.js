@@ -1,5 +1,3 @@
-import { addProject } from "./projectFunctions";
-
 const modalWindow = (function () {
   // Get the modal
   const modal = document.getElementById('myModal');
@@ -27,7 +25,5 @@ const modalWindow = (function () {
     }
   };
 })();
-
-
 
 export { modalWindow };

@@ -2,9 +2,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { getValues } from './getUserInput';
 
-
 const projects = [];
-
 const Project = function (projName, projDesc, projDueDate, projPriority) {
   this.projName = projName;
   this.id = uuidv4();
@@ -16,7 +14,7 @@ const Project = function (projName, projDesc, projDueDate, projPriority) {
 };
 
 const addProject = function () {
-  const getValue = getValues()
+  const getValue = getValues();
   projects.push(
     new Project(
       getValue.nameInput,
