@@ -41,6 +41,53 @@
               <i class="fa-solid fa-plus fa-beat"></i>
               <div>Add a project</div>
             </div>
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <span class="close">x</span>
+                <div class="modal-flex">
+                  <label for="projname">Project Name</label>
+                  <input type="text" name="projname" id="name-input">
+                  <label for="projdesc">Project Description</label>
+                  <input type="text" name="projdesc" id="desc-input">
+                  <label for="projduedate">Project Due Date</label>
+                  <input type="date" name="projduedate" id="date-input">
+                  <div class="radio-flex">
+                    <label for="priority" class="form-label">Low</label>
+                    <input
+                      type="radio"
+                      id="priority-input"
+                      name="priority"
+                      value="Low"
+                      placeholder="Select priority"
+                    />
+                  </div>
+                  <div class="radio-flex">
+                    <label for="priority" class="form-label">Medium</label>
+                    <input
+                      type="radio"
+                      id="priority-input"
+                      name="priority"
+                      value="Medium"
+                      placeholder="Select priority"
+                    />
+                  </div>
+                  <div class="radio-flex">
+                    <label for="priority" class="form-label">High</label>
+                    <input
+                      type="radio"
+                      id="priority-input"
+                      name="priority"
+                      value="High"
+                      placeholder="Select priority"
+                    />
+                    <div class="btn-flex">
+                      <button class="cancel">Cancel</button>
+                      <button id="submit">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
              
       </div>
