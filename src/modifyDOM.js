@@ -1,13 +1,13 @@
-// import { getProjects } from './projectFunctions';
+import { getProjects } from './projectFunctions';
 
-// const projects = getProjects();
+const projects = getProjects();
 
-// const addDOMSidebar = function () {
-//   const addBtn = document.getElementById('all-projects');
-//   const createP = document.createElement('p');
-//   createP.innerHTML = projects[projects.length - 1].projName;
-//   addBtn.appendChild(createP);
-// };
+const addDOMSidebar = function () {
+  const addBtn = document.getElementById('all-projects');
+  const createP = document.createElement('p');
+  createP.innerHTML = projects[projects.length - 1].projName;
+  addBtn.appendChild(createP);
+};
 
 // const addDOMContainer = function () {
 //   const cardContainer = document.getElementById('card-container');
@@ -19,3 +19,4 @@
 //   cardContainer.appendChild(createCard);
 // };
 
+export { addDOMSidebar };

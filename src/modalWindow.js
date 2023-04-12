@@ -4,7 +4,7 @@ const modalWindow = (function () {
 
   // Get the button that opens the modal
   const btn = document.getElementById('addBtn');
-
+  const submitButton = document.getElementById('submit');
   // Get the <span> element that closes the modal
   const span = document.getElementsByClassName('close')[0];
 
@@ -15,6 +15,10 @@ const modalWindow = (function () {
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
+    modal.style.display = 'none';
+  };
+
+  submitButton.onclick = function () {
     modal.style.display = 'none';
   };
 

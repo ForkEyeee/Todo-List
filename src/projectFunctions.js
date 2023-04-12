@@ -22,7 +22,7 @@ const addProject = function () {
       getValue.dateInput,
       getValue.priorityInput
     )
-  ); // This would be an input value
+  );
   console.log(projects);
 };
 
