@@ -1,4 +1,4 @@
-const modalWindow = (function () {
+const modalWindow = () => {
   // Get the modal
   const modal = document.getElementById('myModal');
 
@@ -28,6 +28,6 @@ const modalWindow = (function () {
       modal.style.display = 'none';
     }
   };
-})();
+};
 
 export { modalWindow };

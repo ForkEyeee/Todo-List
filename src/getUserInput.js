@@ -1,4 +1,4 @@
-const getValues = () => {
+const getInputValues = () => {
   const nameInput = document.getElementById('name-input').value;
   const descInput = document.getElementById('desc-input').value;
   const dateInput = document.getElementById('date-input').value;
@@ -11,4 +11,4 @@ const getValues = () => {
   };
 };
 
-export { getValues };
+export { getInputValues };

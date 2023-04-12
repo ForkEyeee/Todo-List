@@ -28,8 +28,6 @@ p {
   padding-left: 35px;
 }
 
-
-
 #card-container {
   display: flex;
   padding: 20px;
@@ -60,14 +58,14 @@ p {
 }
 
 .sidebar {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	justify-content: flex-start;
-	gap: 2rem;
-	align-items: center;
-	width: 400px;
-	background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-start;
+  gap: 2rem;
+  align-items: center;
+  width: 400px;
+  background-color: #ddd;
 }
 
 .sidebar-info {
@@ -75,29 +73,32 @@ p {
 }
 
 .sidebar-calendar {
-	margin-top: 50px;
+  margin-top: 50px;
 }
 
 .sidebar-item {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	width: 126px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 126px;
 }
 
 .sidebar-item i {
-	padding-right: 10px;
+  padding-right: 10px;
 }
 
 .sidebar-projects h2 {
-	position: relative;
-    left: -20px;
+  position: relative;
+  left: -20px;
 }
 
-#addBtn:hover{
-background-color: rgb(209, 205, 205) !important;
-padding: 10px;
-border-radius: 10px;
+div#addBtn {
+  padding: 15px 15px 15px 21px;
+}
+
+#addBtn:hover {
+  background-color: rgb(209, 205, 205) !important;
+  border-radius: 10px;
 }
 
 .modal {
@@ -109,8 +110,9 @@ border-radius: 10px;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  overflow: hidden;
 }
 
 /* Modal Content/Box */
@@ -120,7 +122,7 @@ border-radius: 10px;
   padding: 20px;
   border: 1px solid #888;
   width: 20%;
-  height: 356px;
+  height: 395px;
 }
 
 /* The Close Button */
@@ -147,4 +149,8 @@ border-radius: 10px;
 .btn-flex {
   display: flex;
   justify-content: space-evenly;
+}
+
+.sidebar-projects {
+  width: 100px;
 }

@@ -1,11 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-import { getValues } from './getUserInput';
-// import { attribute, findProject } from './modifyDOM';
+import { getInputValues } from './getUserInput';
 
-let findProject
-let attribute = ""
+let findProject;
 
-// Adds a project to the projects object
 const projects = [];
 const Project = function (projName, projDesc, projDueDate, projPriority) {
   this.projName = projName;
@@ -18,7 +15,7 @@ const Project = function (projName, projDesc, projDueDate, projPriority) {
 };
 
 const addProject = function () {
-  const getValue = getValues();
+  const getValue = getInputValues();
   projects.push(
     new Project(
       getValue.nameInput,
@@ -36,6 +33,7 @@ const getAllProjects = function () {
 
 // Gets the information for selected project
 const getSelectedProject = (event) => {
+  let attribute = '';
   attribute = event.target.getAttribute('data-id');
   for (let i = 0; projects.length; i++) {
     if (projects[i].id === attribute) {
@@ -46,5 +44,6 @@ const getSelectedProject = (event) => {
     }
   }
 };
+
 
 export { addProject, getAllProjects, getSelectedProject };

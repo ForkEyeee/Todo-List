@@ -1,3 +1,6 @@
 import './styles/main.css';
-import { initializeEvents } from './initializeEventListeners'; //IIFE
-import { modalWindow } from './modalWindow'; // IIFE
+import { modalWindow } from './modalWindow';
+import {addSubmitEvents} from './modifyDOM'
+
+addSubmitEvents()
+modalWindow()
