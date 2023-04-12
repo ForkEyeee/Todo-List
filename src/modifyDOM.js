@@ -1,36 +1,25 @@
-import { getProjects } from './projectFunctions';
+import { getAllProjects } from './projectFunctions';
 
-const projects = getProjects();
+const projects = getAllProjects();
+const createP = document.createElement('p');
+
 let findProject;
 let attribute;
-const addDOMSidebar = function () {
+
+const addDOMSidebar = () => {
   const addBtn = document.getElementById('all-projects');
-  const createP = document.createElement('p');
-  createP.innerHTML = projects[projects.length - 1].projName;
-  addBtn.appendChild(createP);
-  createP.dataset.id = projects[projects.length - 1].id;
-  createP.addEventListener('click', (event) => {
-    attribute = event.target.getAttribute('data-id');
-    for (let i = 0; projects.length; i++) {
-      if (projects[i].id === attribute) {
-        console.log(i);
-				findProject = projects[i].id;
-				console.log(findProject)
-				return
-				
-      }
+  if (projects.length !== 0) {
 
-    }
-
-    // findProject = projects.find(
-    // 	(project) => project.target.getAttribute('data-id') === attribute
-    // );
+    createP.innerHTML = projects[projects.length - 1].projName;
+    addBtn.appendChild(createP);
+    createP.dataset.id = projects[projects.length - 1].id;
+    return { createP };
   }
-	
-	);
-
-  console.log(attribute);
+  return { createP };
 };
+// findProject = projects.find(
+// 	(project) => project.target.getAttribute('data-id') === attribute
+// );
 
 //
 // }
@@ -45,4 +34,4 @@ const addDOMSidebar = function () {
 //   cardContainer.appendChild(createCard);
 // };
 
-export { addDOMSidebar };
+export { addDOMSidebar, attribute, findProject, createP };
