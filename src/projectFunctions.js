@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { getInputValues } from './getUserInput';
 
 let findProject;
-
 const projects = [];
 const Project = function (projName, projDesc, projDueDate, projPriority) {
   this.projName = projName;
@@ -38,12 +37,11 @@ const getSelectedProject = (event) => {
   for (let i = 0; projects.length; i++) {
     if (projects[i].id === attribute) {
       console.log(i);
-      findProject = projects[i].id;
+      findProject = projects[i];
       console.log(findProject);
-      return;
+      break;
     }
   }
 };
 
-
-export { addProject, getAllProjects, getSelectedProject };
+export { addProject, getAllProjects, getSelectedProject, findProject };

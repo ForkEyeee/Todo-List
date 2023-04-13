@@ -154,3 +154,19 @@ div#addBtn {
 .sidebar-projects {
   width: 100px;
 }
+
+
+.project-div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 83px;
+  /* border-color: red; */
+  /* border-width: 2px; */
+}
+
+.project-div p {
+  word-break: break-word;
+  /* border-color: red; */
+  /* border-width: 2px; */
+}
