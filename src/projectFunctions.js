@@ -13,7 +13,8 @@ const Project = function (projName, projDesc, projDueDate, projPriority) {
   ];
 };
 
-const addProject = function () {
+const addProject = function (event) {
+  event.preventDefault()
   const getValue = getInputValues();
   projects.push(
     new Project(
@@ -23,7 +24,6 @@ const addProject = function () {
       getValue.priorityInput
     )
   );
-  console.log(projects);
 };
 
 const getAllProjects = function () {
@@ -44,4 +44,4 @@ const getSelectedProject = (event) => {
   }
 };
 
-export { addProject, getAllProjects, getSelectedProject, findProject };
+export { addProject, getAllProjects, getSelectedProject, findProject, Project };
