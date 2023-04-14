@@ -7,7 +7,6 @@ import {
 import { modalWindowProject } from './modalWindow';
 
 const projects = getAllProjects();
-// const currentPara = getSelectedProject()
 const addDOMContainer = () => {
   const project = findProject;
   const cardContainer = document.getElementById('card-container');
@@ -25,7 +24,7 @@ const addDOMContainer = () => {
   createDiv.appendChild(createProjectPara);
   createDiv.appendChild(addTodoDiv);
   cardContainer.appendChild(createDiv);
-	modalWindowProject()
+  modalWindowProject();
   console.log('test');
 };
 

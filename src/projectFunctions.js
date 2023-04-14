@@ -14,7 +14,7 @@ const Project = function (projName, projDesc, projDueDate, projPriority) {
 };
 
 const addProject = function (event) {
-  event.preventDefault()
+  event.preventDefault();
   const getValue = getInputValues();
   projects.push(
     new Project(

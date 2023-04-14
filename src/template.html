@@ -5,95 +5,107 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <script src="https://kit.fontawesome.com/ee91009b7f.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/ee91009b7f.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="header">
       <h1>Todo List</h1>
     </div>
     <div class="main-content-wrapper">
-        <div class="sidebar">
-          <div class="sidebar-calendar">
-            <div class="sidebar-item">
+      <div class="sidebar">
+        <div class="sidebar-calendar">
+          <div class="sidebar-item">
             <i class="fa-solid fa-calendar-day"></i>
-             <p>Today</p> 
-            </div>
-            <div class="sidebar-item">
-              <i class="fa-solid fa-calendar-week"></i>
-              <p>This week</p>
-            </div>
-            <div class="sidebar-item">
-              <i class="fa-regular fa-calendar-days"></i>
-              <p>This month</p>
-            </div>
+            <p>Today</p>
           </div>
-          <div class="sidebar-projects">
-            <h2>Projects</h2>
-            <div id="all-projects">
-            </div>
-            <div class="sidebar-item" id="addBtn">
-              <i class="fa-solid fa-plus fa-beat"></i>
-              <div>Add a project</div>
-            </div>
-            <div id="myModal" class="modal">
-              <div class="modal-content">
-                <span class="close">x</span>
-                <div >
-                  <form action="" method="get" class="modal-flex" id="form-div">
-                    <label for="projname">Project Name</label>
-                    <input type="text" name="projname" id="name-input">
-                    <label for="projdesc">Project Description</label>
-                    <input type="text" name="projdesc" id="desc-input">
-                    <label for="projduedate">Project Due Date</label>
-                    <input type="date" name="projduedate" id="date-input">
-                    <label for="priority">Project Priority</label>
-                    <div class="radio-flex">
-                      <label for="priority" class="form-label">Low</label>
-                      <input
-                        type="radio"
-                        id="priority-input"
-                        name="priority"
-                        value="Low"
-                        placeholder="Select priority"
-                      />
-                    </div>
-                    <div class="radio-flex">
-                      <label for="priority" class="form-label">Medium</label>
-                      <input
-                        type="radio"
-                        id="priority-input"
-                        name="priority"
-                        value="Medium"
-                        placeholder="Select priority"
-                      />
-                    </div>
-                    <div class="radio-flex">
-                      <label for="priority" class="form-label">High</label>
-                      <input
-                        type="radio"
-                        id="priority-input"
-                        name="priority"
-                        value="High"
-                        placeholder="Select priority"
-                      />
-                      <div class="btn-flex">
-                        <button id="submit">Submit</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+          <div class="sidebar-item">
+            <i class="fa-solid fa-calendar-week"></i>
+            <p>This week</p>
+          </div>
+          <div class="sidebar-item">
+            <i class="fa-regular fa-calendar-days"></i>
+            <p>This month</p>
+          </div>
+        </div>
+        <div class="sidebar-projects">
+          <h2>Projects</h2>
+          <div id="all-projects"></div>
+          <div class="sidebar-item" id="addBtn">
+            <i class="fa-solid fa-plus fa-beat"></i>
+            <div>Add a project</div>
+          </div>
+          <div id="myModal" class="modal" style="display: none">
+            <div class="modal-content">
+              <span class="close">x</span>
+              <div>
+                <form action="" method="get" class="modal-flex" id="form-div">
+                  <label for="projname">Project Name</label>
+                  <input type="text" name="projname" id="name-input" />
+
+                  <div class="btn-flex">
+                    <button id="submit">Submit</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          
+        </div>
+
+        <!-- <div id="myModal2" class="modal2">
+          <div class="modal-content2">
+            <span class="close2">x</span>
+            <div>
+              <form action="" method="get" class="modal-flex" id="form-div2">
+                <label for="projdesc">Project Description</label>
+                <input type="text" name="projdesc" id="desc-input" />
+                <label for="projduedate">Project Due Date</label>
+                <input type="date" name="projduedate" id="date-input" />
+                <label for="priority">Project Priority</label>
+                <div class="radio-flex">
+                  <label for="priority" class="form-label">Low</label>
+                  <input
+                    type="radio"
+                    id="priority-input"
+                    name="priority"
+                    value="Low"
+                    placeholder="Select priority"
+                  />
+                </div>
+                <div class="radio-flex">
+                  <label for="priority" class="form-label">Medium</label>
+                  <input
+                    type="radio"
+                    id="priority-input"
+                    name="priority"
+                    value="Medium"
+                    placeholder="Select priority"
+                  />
+                </div>
+                <div class="radio-flex">
+                  <label for="priority" class="form-label">High</label>
+                  <input
+                    type="radio"
+                    id="priority-input"
+                    name="priority"
+                    value="High"
+                    placeholder="Select priority"
+                  />
+
+                  <div class="btn-flex">
+                    <button id="submit2">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div> -->
       </div>
       <div id="card-container">
-          <!-- <div>
-            <i class="fa-solid fa-plus fa-beat" id="add-todo"></i>
-          </div> -->
-        </div>
+        <div id="project-div"></div>
       </div>
-
     </div>
   </body>
 </html>
