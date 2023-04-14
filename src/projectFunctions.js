@@ -3,14 +3,14 @@ import { getInputValues } from './getUserInput';
 
 let findProject;
 const projects = [];
-const Project = function (projName) {
+const Project = function (projName, projDesc, projDueDate, projPriority) {
   this.projName = projName;
   this.id = uuidv4();
-  // this.todoItems = [
-  //   { desc: projDesc },
-  //   { duedate: projDueDate },
-  //   { priority: projPriority },
-  // ];
+  this.todoItems = [
+    { desc: projDesc },
+    { duedate: projDueDate },
+    { priority: projPriority },
+  ];
 };
 
 const addProject = function (event) {
@@ -19,7 +19,9 @@ const addProject = function (event) {
   projects.push(
     new Project(
       getValue.nameInput,
-
+      getValue.descInput,
+      getValue.dateInput,
+      getValue.priorityInput
     )
   );
 };

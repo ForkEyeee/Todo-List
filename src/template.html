@@ -32,7 +32,8 @@
         </div>
         <div class="sidebar-projects">
           <h2>Projects</h2>
-          <div id="all-projects"></div>
+          <div id="all-projects">
+          </div>
           <div class="sidebar-item" id="addBtn">
             <i class="fa-solid fa-plus fa-beat"></i>
             <div>Add a project</div>
@@ -54,56 +55,39 @@
           </div>
         </div>
 
-        <!-- <div id="myModal2" class="modal2">
-          <div class="modal-content2">
-            <span class="close2">x</span>
+        <div id="myModalTodo" class="modal-todo">
+          <div class="modal-content-todo">
+            <span class="close-todo">x</span>
             <div>
-              <form action="" method="get" class="modal-flex" id="form-div2">
+              <form
+                action=""
+                method="get"
+                class="modal-flex"
+                id="form-div-todo"
+              >
                 <label for="projdesc">Project Description</label>
                 <input type="text" name="projdesc" id="desc-input" />
                 <label for="projduedate">Project Due Date</label>
                 <input type="date" name="projduedate" id="date-input" />
-                <label for="priority">Project Priority</label>
-                <div class="radio-flex">
-                  <label for="priority" class="form-label">Low</label>
-                  <input
-                    type="radio"
-                    id="priority-input"
-                    name="priority"
-                    value="Low"
-                    placeholder="Select priority"
-                  />
-                </div>
-                <div class="radio-flex">
-                  <label for="priority" class="form-label">Medium</label>
-                  <input
-                    type="radio"
-                    id="priority-input"
-                    name="priority"
-                    value="Medium"
-                    placeholder="Select priority"
-                  />
-                </div>
-                <div class="radio-flex">
-                  <label for="priority" class="form-label">High</label>
-                  <input
-                    type="radio"
-                    id="priority-input"
-                    name="priority"
-                    value="High"
-                    placeholder="Select priority"
-                  />
-
-                  <div class="btn-flex">
-                    <button id="submit2">Submit</button>
-                  </div>
+                <label for="priority" class="form-label"
+                  >Project Priority</label
+                >
+                <select name="priority" id="priority-input">
+                  <option value=""></option>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+                <div class="btn-flex">
+                  <button id="submit-todo">Submit</button>
                 </div>
               </form>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
       <div id="card-container">
+        <div class="fa-solid fa-plus fa-beat" id="add-todo">Open Todo</div>
         <div id="project-div"></div>
       </div>
     </div>

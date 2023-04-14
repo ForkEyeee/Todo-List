@@ -9,23 +9,14 @@ import { modalWindowProject } from './modalWindow';
 const projects = getAllProjects();
 const addDOMContainer = () => {
   const project = findProject;
-  const cardContainer = document.getElementById('card-container');
-  const addTodoDiv = document.createElement('div');
-  addTodoDiv.setAttribute('class', 'fa-solid fa-plus fa-beat');
-  addTodoDiv.setAttribute('id', 'add-todo');
+  const projectDiv = document.getElementById('project-div');
   const createDiv = document.createElement('div');
   const createProjectPara = document.createElement('p');
-  addTodoDiv.addEventListener('click', () => {
-    console.log(project.id);
-  });
-  createDiv.setAttribute('id', 'project-div');
-  createProjectPara.innerHTML = `${project.projName}`
-	//  ${project.todoItems[0].desc} ${project.todoItems[1].duedate} ${project.todoItems[2].priority}`;
-  cardContainer.innerHTML = '';
+  createProjectPara.innerHTML = `${project.projName}`;
+  //  ${project.todoItems[0].desc} ${project.todoItems[1].duedate} ${project.todoItems[2].priority}`;
+  projectDiv.innerHTML = '';
   createDiv.appendChild(createProjectPara);
-  createDiv.appendChild(addTodoDiv);
-  cardContainer.appendChild(createDiv);
-  modalWindowProject();
+  projectDiv.appendChild(createDiv);
   console.log('test');
 };
 
@@ -53,8 +44,10 @@ const addDOMSidebar = (event) => {
 
 const addSubmitEvents = () => {
   const submitBtn = document.getElementById('submit');
+	const submitBtnTodo = document.getElementById('submit-todo')
   submitBtn.addEventListener('click', addProject);
   submitBtn.addEventListener('click', addDOMSidebar);
+	submitBtnTodo.addEventListener('click', addProject)
 };
 
 export { addDOMSidebar, addSubmitEvents, addDOMContainer, addParaEvents };

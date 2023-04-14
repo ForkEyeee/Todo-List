@@ -5,7 +5,6 @@ const modalWindowProject = () => {
   const form = document.getElementById('form-div');
   // Get the button that opens the modal
   const btn = document.getElementById('addBtn');
-  const btn2 = document.getElementById('add-todo');
   const submitButton = document.getElementById('submit');
   // Get the <span> element that closes the modal
   const span = document.getElementsByClassName('close')[0];
@@ -22,11 +21,6 @@ const modalWindowProject = () => {
     modal.style.display = 'none';
     form.reset();
   };
-  if (document.body.contains(btn2)) {
-    btn2.onclick = function () {
-      modal.style.display = 'block';
-    };
-  }
 
   // When user clicks submit
   submitButton.onclick = function () {
