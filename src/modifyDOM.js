@@ -19,7 +19,8 @@ const addDOMContainer = () => {
     console.log(project.id);
   });
   createDiv.setAttribute('id', 'project-div');
-  createProjectPara.innerHTML = `${project.projName} ${project.todoItems[0].desc} ${project.todoItems[1].duedate} ${project.todoItems[2].priority}`;
+  createProjectPara.innerHTML = `${project.projName}`
+	//  ${project.todoItems[0].desc} ${project.todoItems[1].duedate} ${project.todoItems[2].priority}`;
   cardContainer.innerHTML = '';
   createDiv.appendChild(createProjectPara);
   createDiv.appendChild(addTodoDiv);
