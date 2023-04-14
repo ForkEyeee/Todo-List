@@ -3,8 +3,8 @@ import {
   addProject,
   getSelectedProject,
   findProject,
+	addProjectTodo
 } from './projectFunctions';
-import { modalWindowProject } from './modalWindow';
 
 const projects = getAllProjects();
 const addDOMContainer = () => {
@@ -47,7 +47,7 @@ const addSubmitEvents = () => {
 	const submitBtnTodo = document.getElementById('submit-todo')
   submitBtn.addEventListener('click', addProject);
   submitBtn.addEventListener('click', addDOMSidebar);
-	submitBtnTodo.addEventListener('click', addProject)
+	submitBtnTodo.addEventListener('click', addProjectTodo)
 };
 
 export { addDOMSidebar, addSubmitEvents, addDOMContainer, addParaEvents };

@@ -6,11 +6,7 @@ const projects = [];
 const Project = function (projName, projDesc, projDueDate, projPriority) {
   this.projName = projName;
   this.id = uuidv4();
-  this.todoItems = [
-    { desc: projDesc },
-    { duedate: projDueDate },
-    { priority: projPriority },
-  ];
+  // this.todoItems = [projDesc, projDueDate, projPriority];
 };
 
 const addProject = function (event) {
@@ -21,9 +17,35 @@ const addProject = function (event) {
       getValue.nameInput,
       getValue.descInput,
       getValue.dateInput,
-      getValue.priorityInput
+      getValue.priorityInput,
     )
   );
+  console.log(projects)
+
+};
+
+const addProjectTodo = function (event) {
+  event.preventDefault();
+  const getValue = getInputValues();
+  const found = projects.find((project) => project.id === findProject.id);
+  if (found.hasOwnProperty('todoItems') === false) {
+    found.todoItems = [
+      {
+        desc: getValue.descInput,
+        date: getValue.dateInput,
+        priority: getValue.priorityInput,
+      },
+    ];
+  } else {
+    found.todoItems.push(
+      {
+        desc: getValue.descInput,
+        date: getValue.dateInput,
+        priority: getValue.priorityInput,
+      },
+    );
+  }
+  console.log(projects);
 };
 
 const getAllProjects = function () {
@@ -44,4 +66,11 @@ const getSelectedProject = (event) => {
   }
 };
 
-export { addProject, getAllProjects, getSelectedProject, findProject, Project };
+export {
+  addProject,
+  addProjectTodo,
+  getAllProjects,
+  getSelectedProject,
+  findProject,
+  Project,
+};
