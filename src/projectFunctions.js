@@ -1,66 +1,69 @@
 import { v4 as uuidv4 } from 'uuid';
-import { getInputValues } from './getUserInput';
+import getUserInput from './getUserInput';
 
-let findProject;
+let locatedProject = {}; // Holds the project
+let attribute = '';
+
 const projects = [];
-const Project = function (projName, projDesc, projDueDate, projPriority) {
+
+const Project = function (projName) {
   this.projName = projName;
   this.id = uuidv4();
-  // this.todoItems = [projDesc, projDueDate, projPriority];
-};
+}; // Project Constructor function
 
 const addProject = function (event) {
   event.preventDefault();
-  const getValue = getInputValues();
+  const getValue = getUserInput();
   projects.push(
     new Project(
       getValue.nameInput,
       getValue.descInput,
       getValue.dateInput,
-      getValue.priorityInput,
+      getValue.priorityInput
     )
   );
-  console.log(projects)
-
-};
-
-const addProjectTodo = function (event) {
-  event.preventDefault();
-  const getValue = getInputValues();
-  const found = projects.find((project) => project.id === findProject.id);
-  if (found.hasOwnProperty('todoItems') === false) {
-    found.todoItems = [
-      {
-        desc: getValue.descInput,
-        date: getValue.dateInput,
-        priority: getValue.priorityInput,
-      },
-    ];
-  } else {
-    found.todoItems.push(
-      {
-        desc: getValue.descInput,
-        date: getValue.dateInput,
-        priority: getValue.priorityInput,
-      },
-    );
-  }
   console.log(projects);
 };
 
+const addTodo = function (event) {
+  event.preventDefault();
+  const getValue = getUserInput();
+  if (
+    projects.find((project) => project.id === locatedProject.id) !== undefined
+  ) {
+    if (
+      locatedProject.hasOwnProperty.call(locatedProject, 'todoItems') === false
+    ) {
+      locatedProject.todoItems = [
+        {
+          desc: getValue.descInput,
+          date: getValue.dateInput,
+          priority: getValue.priorityInput,
+        },
+      ];
+    } else {
+      locatedProject.todoItems.push({
+        desc: getValue.descInput,
+        date: getValue.dateInput,
+        priority: getValue.priorityInput,
+      });
+    }
+  }
+  console.log(projects);
+};
 const getAllProjects = function () {
   return projects;
 };
 
 // Gets the information for selected project
 const getSelectedProject = (event) => {
-  let attribute = '';
   attribute = event.target.getAttribute('data-id');
-  for (let i = 0; projects.length; i++) {
+  for (let i = 0; projects.length; i += 1) {
     if (projects[i].id === attribute) {
+      locatedProject = projects[i];
+      console.log(locatedProject);
       console.log(i);
-      findProject = projects[i];
-      console.log(findProject);
+      console.log(projects);
       break;
     }
   }
@@ -68,9 +71,9 @@ const getSelectedProject = (event) => {
 
 export {
   addProject,
-  addProjectTodo,
+  addTodo,
   getAllProjects,
   getSelectedProject,
-  findProject,
-  Project,
+  locatedProject,
+  attribute,
 };

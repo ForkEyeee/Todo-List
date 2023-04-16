@@ -1,10 +1,11 @@
-const modalWindowProject = () => {
+export default () => {
   // Get the modal
   const modal = document.getElementById('myModal');
   // Get form
   const form = document.getElementById('form-div');
   // Get the button that opens the modal
   const btn = document.getElementById('addBtn');
+  // Get the button that submits the form
   const submitButton = document.getElementById('submit');
   // Get the <span> element that closes the modal
   const span = document.getElementsByClassName('close')[0];
@@ -13,16 +14,14 @@ const modalWindowProject = () => {
   btn.onclick = function () {
     modal.style.display = 'block';
   };
-  // btn2.onclick = function () {
-  //   modal.style.display = 'block';
-  // };
+
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = 'none';
     form.reset();
   };
 
-  // When user clicks submit
+  // When user clicks submit, submit the data
   submitButton.onclick = function () {
     modal.style.display = 'none';
     form.reset();
@@ -37,4 +36,3 @@ const modalWindowProject = () => {
   };
 };
 
-export { modalWindowProject };

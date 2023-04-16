@@ -2,18 +2,17 @@ import {
   getAllProjects,
   addProject,
   getSelectedProject,
-  findProject,
-	addProjectTodo
+  locatedProject,
+  addTodo,
 } from './projectFunctions';
 
 const projects = getAllProjects();
-const addDOMContainer = () => {
-  const project = findProject;
+
+const addDOMProjectName = () => {
   const projectDiv = document.getElementById('project-div');
   const createDiv = document.createElement('div');
   const createProjectPara = document.createElement('p');
-  createProjectPara.innerHTML = `${project.projName}`;
-  //  ${project.todoItems[0].desc} ${project.todoItems[1].duedate} ${project.todoItems[2].priority}`;
+  createProjectPara.innerHTML = `${locatedProject.projName}`;
   projectDiv.innerHTML = '';
   createDiv.appendChild(createProjectPara);
   projectDiv.appendChild(createDiv);
@@ -24,7 +23,7 @@ const addParaEvents = () => {
   const allPEleHTMLCollection = document.getElementsByClassName('project-p');
   const AllPEleArray = Array.from(allPEleHTMLCollection);
   AllPEleArray.forEach((element) => {
-    element.addEventListener('click', addDOMContainer);
+    element.addEventListener('click', addDOMProjectName);
   });
 };
 
@@ -44,10 +43,10 @@ const addDOMSidebar = (event) => {
 
 const addSubmitEvents = () => {
   const submitBtn = document.getElementById('submit');
-	const submitBtnTodo = document.getElementById('submit-todo')
+  const submitBtnTodo = document.getElementById('submit-todo');
   submitBtn.addEventListener('click', addProject);
   submitBtn.addEventListener('click', addDOMSidebar);
-	submitBtnTodo.addEventListener('click', addProjectTodo)
+  submitBtnTodo.addEventListener('click', addTodo);
 };
 
-export { addDOMSidebar, addSubmitEvents, addDOMContainer, addParaEvents };
+export { addDOMSidebar, addSubmitEvents, addDOMProjectName, addParaEvents };
