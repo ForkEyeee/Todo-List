@@ -2,21 +2,41 @@ import {
   getAllProjects,
   addProject,
   getSelectedProject,
-  locatedProject,
+  attribute,
   addTodo,
+  locatedProject,
 } from './projectFunctions';
 
 const projects = getAllProjects();
+
+const addDOMTodoList = (event) => {
+	const todoContainer = document.getElementById('todo-container');
+
+  const projectList = locatedProject;
+  if (projectList.hasOwnProperty.call(projectList, 'todoItems') === false) {
+		todoContainer.innerHTML = ""
+    return;
+  }
+  let JSONArray = '';
+  for (let i = 0; i < projectList.todoItems.length; i += 1) {
+    JSONArray += JSON.stringify(projectList.todoItems[i]);
+  }
+  const JSONString = JSONArray.replace(/[{}"]/g, '')
+    .replace(/,/g, ' ')
+    .replace(/:/g, (match) => `${match} `);
+  todoContainer.innerHTML = JSONString;
+  console.log(JSONArray);
+  console.log(JSONString);
+};
 
 const addDOMProjectName = () => {
   const projectDiv = document.getElementById('project-div');
   const createDiv = document.createElement('div');
   const createProjectPara = document.createElement('p');
-  createProjectPara.innerHTML = `${locatedProject.projName}`;
+  createProjectPara.innerHTML = locatedProject.projName;
   projectDiv.innerHTML = '';
   createDiv.appendChild(createProjectPara);
   projectDiv.appendChild(createDiv);
-  console.log('test');
 };
 
 const addParaEvents = () => {
@@ -24,6 +44,7 @@ const addParaEvents = () => {
   const AllPEleArray = Array.from(allPEleHTMLCollection);
   AllPEleArray.forEach((element) => {
     element.addEventListener('click', addDOMProjectName);
+    element.addEventListener('click', addDOMTodoList);
   });
 };
 
@@ -47,6 +68,13 @@ const addSubmitEvents = () => {
   submitBtn.addEventListener('click', addProject);
   submitBtn.addEventListener('click', addDOMSidebar);
   submitBtnTodo.addEventListener('click', addTodo);
+  submitBtnTodo.addEventListener('click', addDOMTodoList);
 };
 
-export { addDOMSidebar, addSubmitEvents, addDOMProjectName, addParaEvents };
+export {
+  addDOMSidebar,
+  addSubmitEvents,
+  addDOMProjectName,
+  addParaEvents,
+  addDOMTodoList,
+};

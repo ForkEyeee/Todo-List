@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import getUserInput from './getUserInput';
+// import { addDOMTodoList } from './modifyDOM';
 
 let locatedProject = {}; // Holds the project
 let attribute = '';
@@ -65,6 +66,7 @@ const getSelectedProject = (event) => {
       console.log(i);
       console.log(projects);
       break;
+      // addTodo(event)
     }
   }
 };
