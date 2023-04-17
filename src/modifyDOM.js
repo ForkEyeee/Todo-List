@@ -6,25 +6,23 @@ import {
   locatedProject,
 } from './projectFunctions';
 
-const projects = getAllProjects();
+const projectsList = getAllProjects();
 
-const addDOMTodoList = (event) => {
+const addDOMTodo = () => {
   const todoContainer = document.getElementById('todo-container');
   todoContainer.innerHTML = '';
 
-  const projectList = locatedProject;
-  if (projectList.hasOwnProperty.call(projectList, 'todoItems') === false) {
+  const projectTodos = locatedProject;
+  if (projectTodos.hasOwnProperty.call(projectTodos, 'todoItems') === false) {
     todoContainer.innerHTML = '';
     return;
   }
 
-  for (let i = 0; i < projectList.todoItems.length; i += 1) {
+  for (let i = 0; i < projectTodos.todoItems.length; i += 1) {
     const todoPara = document.createElement('p');
     todoPara.setAttribute('class', 'todo-para');
-    // todoContainer.innerHTML = '';
     todoContainer.appendChild(todoPara);
-
-    const JSONArray = JSON.stringify(projectList.todoItems[i]);
+    const JSONArray = JSON.stringify(projectTodos.todoItems[i]);
     const JSONString = JSONArray.replace(/[{}"]/g, '')
       .replace(/,/g, ' ')
       .replace(/:/g, (match) => `${match} `);
@@ -34,7 +32,7 @@ const addDOMTodoList = (event) => {
   }
 };
 
-const addDOMProjectName = () => {
+const addDOMProject = () => {
   const projectDiv = document.getElementById('project-div');
   const createDiv = document.createElement('div');
   const createProjectPara = document.createElement('p');
@@ -44,42 +42,43 @@ const addDOMProjectName = () => {
   projectDiv.appendChild(createDiv);
 };
 
-const addParaEvents = () => {
-  const allPEleHTMLCollection = document.getElementsByClassName('project-p');
-  const AllPEleArray = Array.from(allPEleHTMLCollection);
-  AllPEleArray.forEach((element) => {
-    element.addEventListener('click', addDOMProjectName);
-    element.addEventListener('click', addDOMTodoList);
+const addProjectEvents = () => {
+  const paraElementsHTMLCollection =
+    document.getElementsByClassName('project-p');
+  const paraElementsArray = Array.from(paraElementsHTMLCollection);
+  paraElementsArray.forEach((para) => {
+    para.addEventListener('click', addDOMProject);
+    para.addEventListener('click', addDOMTodo);
   });
 };
 
-const addDOMSidebar = (event) => {
+const addDOMSidebarProject = (event) => {
   event.preventDefault();
   const createP = document.createElement('p');
   createP.setAttribute('class', 'project-p');
   createP.addEventListener('click', getSelectedProject);
-  const addBtn = document.getElementById('all-projects');
-  if (projects.length !== 0) {
-    createP.innerHTML = projects[projects.length - 1].projName;
-    addBtn.appendChild(createP);
-    createP.dataset.id = projects[projects.length - 1].id;
-    addParaEvents();
+  const projectsDiv = document.getElementById('all-projects');
+  if (projectsList.length !== 0) {
+    createP.innerHTML = projectsList[projectsList.length - 1].projName;
+    projectsDiv.appendChild(createP);
+    createP.dataset.id = projectsList[projectsList.length - 1].id;
+    addProjectEvents();
   }
 };
 
 const addSubmitEvents = () => {
-  const submitBtn = document.getElementById('submit');
+  const submitBtnProject = document.getElementById('submit-project');
   const submitBtnTodo = document.getElementById('submit-todo');
-  submitBtn.addEventListener('click', addProject);
-  submitBtn.addEventListener('click', addDOMSidebar);
+  submitBtnProject.addEventListener('click', addProject);
+  submitBtnProject.addEventListener('click', addDOMSidebarProject);
   submitBtnTodo.addEventListener('click', addTodo);
-  submitBtnTodo.addEventListener('click', addDOMTodoList);
+  submitBtnTodo.addEventListener('click', addDOMTodo);
 };
 
 export {
-  addDOMSidebar,
+  addDOMSidebarProject,
   addSubmitEvents,
-  addDOMProjectName,
-  addParaEvents,
-  addDOMTodoList,
+  addDOMProject,
+  addProjectEvents,
+  addDOMTodo,
 };

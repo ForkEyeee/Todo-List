@@ -66,7 +66,6 @@ const getSelectedProject = (event) => {
       console.log(i);
       console.log(projects);
       break;
-      // addTodo(event)
     }
   }
 };

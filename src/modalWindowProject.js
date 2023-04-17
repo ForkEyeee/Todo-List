@@ -6,7 +6,7 @@ export default () => {
   // Get the button that opens the modal
   const btn = document.getElementById('addBtn');
   // Get the button that submits the form
-  const submitButton = document.getElementById('submit');
+  const submitButton = document.getElementById('submit-project');
   // Get the <span> element that closes the modal
   const span = document.getElementsByClassName('close')[0];
 
@@ -35,4 +35,3 @@ export default () => {
     }
   };
 };
-
