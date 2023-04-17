@@ -2,7 +2,6 @@ import {
   getAllProjects,
   addProject,
   getSelectedProject,
-  attribute,
   addTodo,
   locatedProject,
 } from './projectFunctions';
@@ -10,23 +9,29 @@ import {
 const projects = getAllProjects();
 
 const addDOMTodoList = (event) => {
-	const todoContainer = document.getElementById('todo-container');
+  const todoContainer = document.getElementById('todo-container');
+  todoContainer.innerHTML = '';
 
   const projectList = locatedProject;
   if (projectList.hasOwnProperty.call(projectList, 'todoItems') === false) {
-		todoContainer.innerHTML = ""
+    todoContainer.innerHTML = '';
     return;
   }
-  let JSONArray = '';
+
   for (let i = 0; i < projectList.todoItems.length; i += 1) {
-    JSONArray += JSON.stringify(projectList.todoItems[i]);
+    const todoPara = document.createElement('p');
+    todoPara.setAttribute('class', 'todo-para');
+    // todoContainer.innerHTML = '';
+    todoContainer.appendChild(todoPara);
+
+    const JSONArray = JSON.stringify(projectList.todoItems[i]);
+    const JSONString = JSONArray.replace(/[{}"]/g, '')
+      .replace(/,/g, ' ')
+      .replace(/:/g, (match) => `${match} `);
+    todoPara.innerHTML = JSONString;
+    console.log(JSONArray);
+    console.log(JSONString);
   }
-  const JSONString = JSONArray.replace(/[{}"]/g, '')
-    .replace(/,/g, ' ')
-    .replace(/:/g, (match) => `${match} `);
-  todoContainer.innerHTML = JSONString;
-  console.log(JSONArray);
-  console.log(JSONString);
 };
 
 const addDOMProjectName = () => {

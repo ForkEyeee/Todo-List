@@ -32,10 +32,16 @@ p {
   display: flex;
   padding: 20px;
   width: 100vw;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
   background-color: #f0eef1;
   word-break: break-all;
+  flex-direction: column;
+}
+
+div#todo-container {
+  display: flex;
+  gap: 100px;
 }
 
 .card {
