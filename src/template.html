@@ -32,8 +32,7 @@
         </div>
         <div class="sidebar-projects">
           <h2>Projects</h2>
-          <div id="all-projects">
-          </div>
+          <div id="all-projects"></div>
           <div class="sidebar-item" id="addBtn">
             <i class="fa-solid fa-plus fa-beat"></i>
             <div>Add a project</div>
@@ -44,7 +43,7 @@
               <div>
                 <form action="" method="get" class="modal-flex" id="form-div">
                   <label for="projname">Project Name</label>
-                  <input type="text" name="projname" id="name-input" />
+                  <input type="text" name="projname" id="name-input" maxlength="30 "/>
 
                   <div class="btn-flex">
                     <button id="submit-project">Submit</button>
@@ -66,17 +65,26 @@
                 id="form-div-todo"
               >
                 <label for="projdesc">Project Description</label>
-                <input type="text" name="projdesc" id="desc-input" />
+                <input
+                  type="text"
+                  name="projdesc"
+                  id="desc-input"
+                  maxlength="130"
+                />
                 <label for="projduedate">Project Due Date</label>
-                <input type="date" name="projduedate" id="date-input" />
+                <input
+                  type="date"
+                  name="projduedate"
+                  id="date-input"
+                  max="9999-31-01"
+                />
                 <label for="priority" class="form-label"
                   >Project Priority</label
                 >
                 <select name="priority" id="priority-input">
-                  <option value=""></option>
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
                 </select>
                 <div class="btn-flex">
                   <button id="submit-todo">Submit</button>

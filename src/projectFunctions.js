@@ -40,6 +40,7 @@ const addTodo = function (event) {
           desc: getValue.descInput,
           date: getValue.dateInput,
           priority: getValue.priorityInput,
+          id: uuidv4(),
         },
       ];
     } else {
@@ -69,6 +70,20 @@ const getSelectedProject = (event) => {
     }
   }
 };
+
+const removeProject = () => {
+  for (let i = 0; projects.length; i += 1) {
+    if (projects[i].id === attribute) {
+      
+        projects[i].splice();
+      console.log(locatedProject);
+      console.log(i);
+      console.log(projects);
+      break;
+    }
+  }
+}
+
 
 export {
   addProject,

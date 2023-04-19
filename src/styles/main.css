@@ -128,7 +128,7 @@ div#addBtn {
   padding: 20px;
   border: 1px solid #888;
   width: 20%;
-  height: 395px;
+  /* height: 395px; */
 }
 
 /* The Close Button */
@@ -199,10 +199,10 @@ div#addBtn {
 /* Modal Content/Box */
 .modal-content-todo {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 45%;
 }
 
 /* The Close Button */
@@ -218,4 +218,12 @@ div#addBtn {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+p.project-p {
+  word-break: break-word;
+}
+
+.todo-div > p {
+  width: 220px;
 }

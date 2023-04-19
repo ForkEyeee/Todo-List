@@ -19,16 +19,38 @@ const addDOMTodo = () => {
   }
 
   for (let i = 0; i < projectTodos.todoItems.length; i += 1) {
-    const todoPara = document.createElement('p');
-    todoPara.setAttribute('class', 'todo-para');
-    todoContainer.appendChild(todoPara);
-    const JSONArray = JSON.stringify(projectTodos.todoItems[i]);
-    const JSONString = JSONArray.replace(/[{}"]/g, '')
+    const todoParaDiv = document.createElement('div');
+    const createTodoParaDesc = document.createElement('p');
+    const createTodoParaDueDate = document.createElement('p');
+    const createTodoParaPriority = document.createElement('p');
+    todoParaDiv.setAttribute('class', 'todo-div');
+    todoContainer.appendChild(todoParaDiv);
+    const JSONArrayDesc = JSON.stringify(projectTodos.todoItems[i].desc);
+    const JSONArrayDueDate = JSON.stringify(projectTodos.todoItems[i].date);
+    const JSONArrayPriority = JSON.stringify(
+      projectTodos.todoItems[i].priority
+    );
+    const cleanJSONArrayDesc = JSONArrayDesc.replace(/[{}"]/g, '')
       .replace(/,/g, ' ')
       .replace(/:/g, (match) => `${match} `);
-    todoPara.innerHTML = JSONString;
-    console.log(JSONArray);
-    console.log(JSONString);
+    const cleanJSONArrayDueDate = JSONArrayDueDate.replace(/[{}"]/g, '')
+      .replace(/,/g, ' ')
+      .replace(/:/g, (match) => `${match} `);
+    const cleanJSONArrayPriority = JSONArrayPriority.replace(/[{}"]/g, '')
+      .replace(/,/g, ' ')
+      .replace(/:/g, (match) => `${match} `);
+
+    createTodoParaDesc.innerHTML = `Desc: ${cleanJSONArrayDesc}`;
+    createTodoParaDueDate.innerHTML = `Due Date: ${cleanJSONArrayDueDate}`;
+    createTodoParaPriority.innerHTML = `Priority: ${cleanJSONArrayPriority}`;
+    todoParaDiv.appendChild(createTodoParaDesc);
+    todoParaDiv.appendChild(createTodoParaDueDate);
+    todoParaDiv.appendChild(createTodoParaPriority);
+		todoParaDiv.addEventListener('click', () => {
+			console.log('heeeey')
+		})
+    console.log(createTodoParaDesc);
+    console.log(cleanJSONArrayDueDate);
   }
 };
 
