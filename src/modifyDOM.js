@@ -4,6 +4,7 @@ import {
   getSelectedProject,
   addTodo,
   locatedProject,
+  removeProject,
 } from './projectFunctions';
 
 const projectsList = getAllProjects();
@@ -46,9 +47,16 @@ const addDOMTodo = () => {
     todoParaDiv.appendChild(createTodoParaDesc);
     todoParaDiv.appendChild(createTodoParaDueDate);
     todoParaDiv.appendChild(createTodoParaPriority);
-		todoParaDiv.addEventListener('click', () => {
-			console.log('heeeey')
-		})
+    todoParaDiv.addEventListener('click', removeProject);
+    todoParaDiv.addEventListener('click', addDOMTodo);
+
+    todoParaDiv.setAttribute('data-id', projectTodos.todoItems[i].id);
+    // for(i=0, i < projectsList.length; i++) {
+    // 	locatedProject
+    // }
+    // projectsList.forEach(element => {
+    // 	element.dataset.id = projectsList
+    // });
     console.log(createTodoParaDesc);
     console.log(cleanJSONArrayDueDate);
   }

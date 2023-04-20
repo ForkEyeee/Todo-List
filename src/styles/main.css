@@ -226,4 +226,9 @@ p.project-p {
 
 .todo-div > p {
   width: 220px;
+  pointer-events: none;
+
+}
+
+.todo-div > p {
 }

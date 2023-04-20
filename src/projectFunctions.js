@@ -48,6 +48,7 @@ const addTodo = function (event) {
         desc: getValue.descInput,
         date: getValue.dateInput,
         priority: getValue.priorityInput,
+        id: uuidv4(),
       });
     }
   }
@@ -71,19 +72,27 @@ const getSelectedProject = (event) => {
   }
 };
 
-const removeProject = () => {
-  for (let i = 0; projects.length; i += 1) {
-    if (projects[i].id === attribute) {
+const removeProject = (event) => {
+  // getSelectedProject()
+  for (let i = 0; i < projects.length; i += 1) {
+    console.log(projects);
+    if (attribute === projects[i].id) {
+      for (let x = 0; x <= projects[i].todoItems.length; x += 1) {
+        if (event.target.dataset.id === projects[i].todoItems[x].id) {
+          console.log('yes');
+          let arr = projects[i].todoItems
+          arr.splice(x, 1)
+          console.log(arr)
+          break;
+        }
+      }
       
-        projects[i].splice();
-      console.log(locatedProject);
-      console.log(i);
-      console.log(projects);
-      break;
+      // projects[i].todoItems.splice(0, 1);
+      // console.log(projects);
+      // break;
     }
   }
-}
-
+};
 
 export {
   addProject,
@@ -92,4 +101,5 @@ export {
   getSelectedProject,
   locatedProject,
   attribute,
+  removeProject,
 };
