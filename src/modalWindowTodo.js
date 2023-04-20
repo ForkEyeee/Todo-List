@@ -3,10 +3,12 @@ import { attribute } from './projectFunctions';
 export default () => {
   // Get the modal
   const modal = document.getElementById('myModalTodo');
-
+  // Get form
+  const formTodo = document.getElementById('form-div-todo');
   // Get the button that opens the modal
   const btn = document.getElementById('add-todo');
-
+  // Get the button that submits the form
+  const submitBtn = document.getElementById('submit-todo');
   // Get the <span> element that closes the modal
   const span = document.getElementsByClassName('close-todo')[0];
 
@@ -21,12 +23,18 @@ export default () => {
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = 'none';
+    formTodo.reset();
   };
 
+  submitBtn.onclick = function () {
+    modal.style.display = 'none';
+    formTodo.reset();
+  };
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = 'none';
+      formTodo.reset();
     }
   };
 };

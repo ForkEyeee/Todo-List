@@ -24,6 +24,9 @@ const addDOMTodo = () => {
     const createTodoParaDesc = document.createElement('p');
     const createTodoParaDueDate = document.createElement('p');
     const createTodoParaPriority = document.createElement('p');
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerHTML = 'Remove';
+    deleteBtn.setAttribute('class', 'delete-btn');
     todoParaDiv.setAttribute('class', 'todo-div');
     todoContainer.appendChild(todoParaDiv);
     const JSONArrayDesc = JSON.stringify(projectTodos.todoItems[i].desc);
@@ -47,18 +50,11 @@ const addDOMTodo = () => {
     todoParaDiv.appendChild(createTodoParaDesc);
     todoParaDiv.appendChild(createTodoParaDueDate);
     todoParaDiv.appendChild(createTodoParaPriority);
-    todoParaDiv.addEventListener('click', removeProject);
-    todoParaDiv.addEventListener('click', addDOMTodo);
-
-    todoParaDiv.setAttribute('data-id', projectTodos.todoItems[i].id);
-    // for(i=0, i < projectsList.length; i++) {
-    // 	locatedProject
-    // }
-    // projectsList.forEach(element => {
-    // 	element.dataset.id = projectsList
-    // });
-    console.log(createTodoParaDesc);
-    console.log(cleanJSONArrayDueDate);
+    deleteBtn.addEventListener('click', removeProject);
+    deleteBtn.addEventListener('click', addDOMTodo);
+    todoParaDiv.appendChild(deleteBtn);
+    deleteBtn.setAttribute('data-id', projectTodos.todoItems[i].id);
+    console.log(projectsList);
   }
 };
 

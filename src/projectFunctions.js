@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 import getUserInput from './getUserInput';
-// import { addDOMTodoList } from './modifyDOM';
 
 let locatedProject = {}; // Holds the project
 let attribute = '';
@@ -75,21 +74,14 @@ const getSelectedProject = (event) => {
 const removeProject = (event) => {
   // getSelectedProject()
   for (let i = 0; i < projects.length; i += 1) {
-    console.log(projects);
     if (attribute === projects[i].id) {
       for (let x = 0; x <= projects[i].todoItems.length; x += 1) {
         if (event.target.dataset.id === projects[i].todoItems[x].id) {
-          console.log('yes');
-          let arr = projects[i].todoItems
-          arr.splice(x, 1)
-          console.log(arr)
+          const arr = projects[i].todoItems;
+          arr.splice(x, 1);
           break;
         }
       }
-      
-      // projects[i].todoItems.splice(0, 1);
-      // console.log(projects);
-      // break;
     }
   }
 };
