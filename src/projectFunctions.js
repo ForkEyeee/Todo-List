@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import getUserInput from './getUserInput';
+import todoCollapsible from './todoCollapsible';
 
 let locatedProject = {}; // Holds the project
 let attribute = '';
@@ -16,18 +17,20 @@ const addProject = function (event) {
   const getValue = getUserInput();
   projects.push(
     new Project(
-      getValue.nameInput,
+      getValue.projectNameInput,
       getValue.descInput,
       getValue.dateInput,
-      getValue.priorityInput
+      getValue.priorityInput,
+      getValue.todoNameInput
     )
   );
   console.log(projects);
 };
 
 const addTodo = function (event) {
-  event.preventDefault();
   const getValue = getUserInput();
+
+  event.preventDefault();
   if (
     projects.find((project) => project.id === locatedProject.id) !== undefined
   ) {
@@ -36,6 +39,7 @@ const addTodo = function (event) {
     ) {
       locatedProject.todoItems = [
         {
+          name: getValue.todoNameInput,
           desc: getValue.descInput,
           date: getValue.dateInput,
           priority: getValue.priorityInput,
@@ -44,6 +48,7 @@ const addTodo = function (event) {
       ];
     } else {
       locatedProject.todoItems.push({
+        name: getValue.todoNameInput,
         desc: getValue.descInput,
         date: getValue.dateInput,
         priority: getValue.priorityInput,

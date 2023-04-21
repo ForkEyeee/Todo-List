@@ -69,23 +69,28 @@
                 class="modal-flex"
                 id="form-div-todo"
               >
-                <label for="projdesc">Project Description</label>
+                <label for="todoname">Todo Name</label>
+                <input
+                  type="text"
+                  name="todoname"
+                  id="todo-name-input"
+                  maxlength="50"
+                />
+                <label for="projdesc">Todo Description</label>
                 <input
                   type="text"
                   name="projdesc"
                   id="desc-input"
                   maxlength="130"
                 />
-                <label for="projduedate">Project Due Date</label>
+                <label for="projduedate">Todo Due Date</label>
                 <input
                   type="date"
                   name="projduedate"
                   id="date-input"
                   max="9999-31-01"
                 />
-                <label for="priority" class="form-label"
-                  >Project Priority</label
-                >
+                <label for="priority" class="form-label">Todo Priority</label>
                 <select name="priority" id="priority-input">
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>

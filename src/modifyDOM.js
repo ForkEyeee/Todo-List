@@ -6,6 +6,7 @@ import {
   locatedProject,
   removeProject,
 } from './projectFunctions';
+import { toggleCollapsible } from './todoCollapsible';
 
 const projectsList = getAllProjects();
 
@@ -21,10 +22,15 @@ const addDOMTodo = () => {
 
   for (let i = 0; i < projectTodos.todoItems.length; i += 1) {
     const todoParaDiv = document.createElement('div');
+    const createTodoName = document.createElement('p');
     const createTodoParaDesc = document.createElement('p');
     const createTodoParaDueDate = document.createElement('p');
     const createTodoParaPriority = document.createElement('p');
     const deleteBtn = document.createElement('button');
+    const collapsibleBtn = document.createElement('button');
+    collapsibleBtn.setAttribute('class', 'collapsible');
+    const collapsibleContent = document.createElement('div');
+    collapsibleContent.setAttribute('class', 'content');
     deleteBtn.innerHTML = 'Remove';
     deleteBtn.setAttribute('class', 'delete-btn');
     todoParaDiv.setAttribute('class', 'todo-div');
@@ -34,6 +40,7 @@ const addDOMTodo = () => {
     const JSONArrayPriority = JSON.stringify(
       projectTodos.todoItems[i].priority
     );
+    const JSONArrayName = JSON.stringify(projectTodos.todoItems[i].name);
     const cleanJSONArrayDesc = JSONArrayDesc.replace(/[{}"]/g, '')
       .replace(/,/g, ' ')
       .replace(/:/g, (match) => `${match} `);
@@ -44,6 +51,11 @@ const addDOMTodo = () => {
       .replace(/,/g, ' ')
       .replace(/:/g, (match) => `${match} `);
 
+    const cleanJSONArrayName = JSONArrayName.replace(/[{}"]/g, '')
+      .replace(/,/g, ' ')
+      .replace(/:/g, (match) => `${match} `);
+
+    createTodoName.innerHTML = `Name: ${cleanJSONArrayName}`;
     createTodoParaDesc.innerHTML = `Desc: ${cleanJSONArrayDesc}`;
     createTodoParaDueDate.innerHTML = `Due Date: ${cleanJSONArrayDueDate}`;
     createTodoParaPriority.innerHTML = `Priority: ${cleanJSONArrayPriority}`;
@@ -53,8 +65,15 @@ const addDOMTodo = () => {
     deleteBtn.addEventListener('click', removeProject);
     deleteBtn.addEventListener('click', addDOMTodo);
     todoParaDiv.appendChild(deleteBtn);
+    todoParaDiv.appendChild(collapsibleBtn);
+    collapsibleBtn.innerHTML = createTodoName.innerHTML;
+    collapsibleContent.appendChild(createTodoParaDesc);
+    collapsibleContent.appendChild(createTodoParaDueDate);
+    collapsibleContent.appendChild(createTodoParaPriority);
+    todoParaDiv.appendChild(collapsibleContent);
     deleteBtn.setAttribute('data-id', projectTodos.todoItems[i].id);
     console.log(projectsList);
+    collapsibleBtn.addEventListener('click', toggleCollapsible);
   }
 };
 
