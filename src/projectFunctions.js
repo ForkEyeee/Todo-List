@@ -1,9 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 import getUserInput from './getUserInput';
-import todoCollapsible from './todoCollapsible';
+import getEditedInputs from './getEditedInputs';
 
 let locatedProject = {}; // Holds the project
 let attribute = '';
+let getExistingValues = {};
 
 const projects = [];
 
@@ -17,41 +18,42 @@ const addProject = function (event) {
   const getValue = getUserInput();
   projects.push(
     new Project(
-      getValue.projectNameInput,
-      getValue.descInput,
-      getValue.dateInput,
-      getValue.priorityInput,
-      getValue.todoNameInput
+      getValue.proj,
+      getValue.desc,
+      getValue.date,
+      getValue.priority,
+      getValue.todoName
     )
   );
   console.log(projects);
 };
 
 const addTodo = function (event) {
-  const getValue = getUserInput();
-
+  const userInput = getUserInput();
   event.preventDefault();
   if (
     projects.find((project) => project.id === locatedProject.id) !== undefined
   ) {
     if (
       locatedProject.hasOwnProperty.call(locatedProject, 'todoItems') === false
+      // && // if we dont have todoitems, then create them ||
+      // Object.keys(getExistingValues).length === 0
     ) {
       locatedProject.todoItems = [
         {
-          name: getValue.todoNameInput,
-          desc: getValue.descInput,
-          date: getValue.dateInput,
-          priority: getValue.priorityInput,
+          name: userInput.todoName, // create todo items
+          desc: userInput.desc,
+          date: userInput.date,
+          priority: userInput.priority,
           id: uuidv4(),
         },
       ];
     } else {
       locatedProject.todoItems.push({
-        name: getValue.todoNameInput,
-        desc: getValue.descInput,
-        date: getValue.dateInput,
-        priority: getValue.priorityInput,
+        name: userInput.todoName, // edit todo items
+        desc: userInput.desc,
+        date: userInput.date,
+        priority: userInput.priority,
         id: uuidv4(),
       });
     }
@@ -91,6 +93,28 @@ const removeProject = (event) => {
   }
 };
 
+const editProject = (event) => {
+  for (let i = 0; i < projects.length; i += 1) {
+    if (attribute === projects[i].id) {
+      for (let x = 0; x <= projects[i].todoItems.length; x += 1) {
+        if (event.target.dataset.id === projects[i].todoItems[x].id) {
+          getExistingValues = getUserInput();
+          getExistingValues.todoName = projects[i].todoItems[x].name;
+          getExistingValues.desc = projects[i].todoItems[x].desc;
+          getExistingValues.date = projects[i].todoItems[x].date;
+          getExistingValues.priority = projects[i].todoItems[x].priority;
+          getExistingValues.proj = projects[i].projName;
+          break;
+        }
+      }
+    }
+  }
+};
+
+const clearGetExistingValues = () => {
+  getExistingValues = {};
+};
+
 export {
   addProject,
   addTodo,
@@ -99,4 +123,7 @@ export {
   locatedProject,
   attribute,
   removeProject,
+  editProject,
+  getExistingValues,
+  clearGetExistingValues,
 };

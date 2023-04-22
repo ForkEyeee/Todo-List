@@ -15,4 +15,4 @@ for (let i = 0; i < coll.length; i += 1) {
   coll[i].addEventListener('click', toggleCollapsible);
 }
 
-export { toggleCollapsible };
+export default toggleCollapsible;

@@ -11,8 +11,18 @@ export default () => {
   const submitBtn = document.getElementById('submit-todo');
   // Get the <span> element that closes the modal
   const span = document.getElementsByClassName('close-todo')[0];
+  const editBtn = document.getElementById('edit-btn');
 
   // When the user clicks on the button, open the modal
+  if (editBtn !== null) {
+    const editBtnArray = document.querySelectorAll('#edit-btn');
+    editBtnArray.forEach((element) => {
+      element.onclick = function () {
+        modal.style.display = 'block';
+      };
+    } );
+  }
+
   btn.onclick = function () {
     if (attribute === '') {
       alert('Select a project to add a Todo');

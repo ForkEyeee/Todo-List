@@ -1,3 +1,5 @@
+import getEditedInputs from './getEditedInputs';
+import modalWindowTodo from './modalWindowTodo';
 import {
   getAllProjects,
   addProject,
@@ -6,7 +8,7 @@ import {
   locatedProject,
   removeProject,
 } from './projectFunctions';
-import { toggleCollapsible } from './todoCollapsible';
+import todoCollapsible from './todoCollapsible';
 
 const projectsList = getAllProjects();
 
@@ -27,12 +29,14 @@ const addDOMTodo = () => {
     const createTodoParaDueDate = document.createElement('p');
     const createTodoParaPriority = document.createElement('p');
     const deleteBtn = document.createElement('button');
+    const editBtn = document.createElement('button');
     const collapsibleBtn = document.createElement('button');
     collapsibleBtn.setAttribute('class', 'collapsible');
     const collapsibleContent = document.createElement('div');
     collapsibleContent.setAttribute('class', 'content');
     deleteBtn.innerHTML = 'Remove';
     deleteBtn.setAttribute('class', 'delete-btn');
+    editBtn.setAttribute('id', 'edit-btn');
     todoParaDiv.setAttribute('class', 'todo-div');
     todoContainer.appendChild(todoParaDiv);
     const JSONArrayDesc = JSON.stringify(projectTodos.todoItems[i].desc);
@@ -41,6 +45,9 @@ const addDOMTodo = () => {
       projectTodos.todoItems[i].priority
     );
     const JSONArrayName = JSON.stringify(projectTodos.todoItems[i].name);
+    const cleanJSONArrayName = JSONArrayName.replace(/[{}"]/g, '')
+      .replace(/,/g, ' ')
+      .replace(/:/g, (match) => `${match} `);
     const cleanJSONArrayDesc = JSONArrayDesc.replace(/[{}"]/g, '')
       .replace(/,/g, ' ')
       .replace(/:/g, (match) => `${match} `);
@@ -51,20 +58,20 @@ const addDOMTodo = () => {
       .replace(/,/g, ' ')
       .replace(/:/g, (match) => `${match} `);
 
-    const cleanJSONArrayName = JSONArrayName.replace(/[{}"]/g, '')
-      .replace(/,/g, ' ')
-      .replace(/:/g, (match) => `${match} `);
-
     createTodoName.innerHTML = `Name: ${cleanJSONArrayName}`;
     createTodoParaDesc.innerHTML = `Desc: ${cleanJSONArrayDesc}`;
     createTodoParaDueDate.innerHTML = `Due Date: ${cleanJSONArrayDueDate}`;
     createTodoParaPriority.innerHTML = `Priority: ${cleanJSONArrayPriority}`;
+    editBtn.innerHTML = 'Edit';
     todoParaDiv.appendChild(createTodoParaDesc);
     todoParaDiv.appendChild(createTodoParaDueDate);
     todoParaDiv.appendChild(createTodoParaPriority);
     deleteBtn.addEventListener('click', removeProject);
     deleteBtn.addEventListener('click', addDOMTodo);
+    editBtn.addEventListener('click', getEditedInputs);
+    // editBtn.addEventListener('click', ed)
     todoParaDiv.appendChild(deleteBtn);
+    todoParaDiv.appendChild(editBtn);
     todoParaDiv.appendChild(collapsibleBtn);
     collapsibleBtn.innerHTML = createTodoName.innerHTML;
     collapsibleContent.appendChild(createTodoParaDesc);
@@ -72,8 +79,11 @@ const addDOMTodo = () => {
     collapsibleContent.appendChild(createTodoParaPriority);
     todoParaDiv.appendChild(collapsibleContent);
     deleteBtn.setAttribute('data-id', projectTodos.todoItems[i].id);
+    editBtn.setAttribute('data-id', deleteBtn.dataset.id);
     console.log(projectsList);
-    collapsibleBtn.addEventListener('click', toggleCollapsible);
+    collapsibleBtn.addEventListener('click', todoCollapsible);
+    modalWindowTodo()
+    // modalWindowTodo()
   }
 };
 
