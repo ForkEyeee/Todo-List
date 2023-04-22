@@ -41,7 +41,7 @@ const addTodo = function (event) {
     ) {
       locatedProject.todoItems = [
         {
-          name: userInput.todoName, // create todo items
+          name: userInput.todoName, 
           desc: userInput.desc,
           date: userInput.date,
           priority: userInput.priority,
@@ -50,7 +50,7 @@ const addTodo = function (event) {
       ];
     } else {
       locatedProject.todoItems.push({
-        name: userInput.todoName, // edit todo items
+        name: userInput.todoName, 
         desc: userInput.desc,
         date: userInput.date,
         priority: userInput.priority,
