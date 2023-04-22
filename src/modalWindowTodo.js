@@ -20,7 +20,7 @@ export default () => {
       element.onclick = function () {
         modal.style.display = 'block';
       };
-    } );
+    });
   }
 
   btn.onclick = function () {

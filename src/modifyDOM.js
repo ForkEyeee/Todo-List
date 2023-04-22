@@ -79,10 +79,11 @@ const addDOMTodo = () => {
     collapsibleContent.appendChild(createTodoParaPriority);
     todoParaDiv.appendChild(collapsibleContent);
     deleteBtn.setAttribute('data-id', projectTodos.todoItems[i].id);
+    collapsibleBtn.setAttribute('data-id', deleteBtn.dataset.id);
     editBtn.setAttribute('data-id', deleteBtn.dataset.id);
     console.log(projectsList);
     collapsibleBtn.addEventListener('click', todoCollapsible);
-    modalWindowTodo()
+    modalWindowTodo();
     // modalWindowTodo()
   }
 };

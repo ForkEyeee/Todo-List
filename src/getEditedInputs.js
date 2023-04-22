@@ -1,5 +1,9 @@
-import { editProject, getExistingValues } from './projectFunctions';
-import { clearGetExistingValues } from './projectFunctions';
+import {
+  editProject,
+  getExistingValues,
+  clearGetExistingValues,
+} from './projectFunctions';
+
 export default function (event) {
   if (event.target.getAttribute('id') === 'edit-btn') {
     editProject(event);
@@ -10,6 +14,6 @@ export default function (event) {
       getExistingValues.priority;
     document.getElementById('todo-name-input').value =
       getExistingValues.todoName;
-			clearGetExistingValues()
+    clearGetExistingValues();
   }
 }

@@ -1,8 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import getUserInput from './getUserInput';
-import getEditedInputs from './getEditedInputs';
 
-let locatedProject = {}; // Holds the project
+let locatedProject = {};
 let attribute = '';
 let getExistingValues = {};
 
@@ -36,21 +35,20 @@ const addTodo = function (event) {
   ) {
     if (
       locatedProject.hasOwnProperty.call(locatedProject, 'todoItems') === false
-      // && // if we dont have todoitems, then create them ||
-      // Object.keys(getExistingValues).length === 0
     ) {
       locatedProject.todoItems = [
         {
-          name: userInput.todoName, 
+          name: userInput.todoName,
           desc: userInput.desc,
           date: userInput.date,
           priority: userInput.priority,
           id: uuidv4(),
         },
       ];
+      console.log('change');
     } else {
       locatedProject.todoItems.push({
-        name: userInput.todoName, 
+        name: userInput.todoName,
         desc: userInput.desc,
         date: userInput.date,
         priority: userInput.priority,
@@ -58,8 +56,9 @@ const addTodo = function (event) {
       });
     }
   }
-  console.log(projects);
 };
+console.log(projects);
+
 const getAllProjects = function () {
   return projects;
 };
