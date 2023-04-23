@@ -4,6 +4,9 @@ import getUserInput from './getUserInput';
 let locatedProject = {};
 let attribute = '';
 let getExistingValues = {};
+let isEditMode = false;
+
+let editTodoId = null;
 
 const projects = [];
 
@@ -28,32 +31,50 @@ const addProject = function (event) {
 };
 
 const addTodo = function (event) {
-  const userInput = getUserInput();
   event.preventDefault();
+  const userInput = getUserInput();
+
   if (
     projects.find((project) => project.id === locatedProject.id) !== undefined
   ) {
-    if (
-      locatedProject.hasOwnProperty.call(locatedProject, 'todoItems') === false
-    ) {
-      locatedProject.todoItems = [
-        {
+    if (!isEditMode) {
+      if (
+        locatedProject.hasOwnProperty.call(locatedProject, 'todoItems') === false
+      ) {
+        locatedProject.todoItems = [
+          {
+            name: userInput.todoName,
+            desc: userInput.desc,
+            date: userInput.date,
+            priority: userInput.priority,
+            id: uuidv4(),
+          },
+        ];
+      } else {
+        locatedProject.todoItems.push({
           name: userInput.todoName,
           desc: userInput.desc,
           date: userInput.date,
           priority: userInput.priority,
           id: uuidv4(),
-        },
-      ];
-      console.log('change');
+        });
+      }
     } else {
-      locatedProject.todoItems.push({
-        name: userInput.todoName,
-        desc: userInput.desc,
-        date: userInput.date,
-        priority: userInput.priority,
-        id: uuidv4(),
-      });
+      // Update the existing todoItem instead of overwriting it
+      const todoItem = locatedProject.todoItems.find(
+        (item) => item.id === editTodoId
+      );
+
+      if (todoItem) {
+        todoItem.name = userInput.todoName;
+        todoItem.desc = userInput.desc;
+        todoItem.date = userInput.date;
+        todoItem.priority = userInput.priority;
+      }
+
+      // Reset the edit mode and editTodoId after updating the todoItem
+      isEditMode = false;
+      editTodoId = null;
     }
   }
 };
@@ -97,6 +118,9 @@ const editProject = (event) => {
     if (attribute === projects[i].id) {
       for (let x = 0; x <= projects[i].todoItems.length; x += 1) {
         if (event.target.dataset.id === projects[i].todoItems[x].id) {
+          isEditMode = true;
+          editTodoId = projects[i].todoItems[x].id;
+
           getExistingValues = getUserInput();
           getExistingValues.todoName = projects[i].todoItems[x].name;
           getExistingValues.desc = projects[i].todoItems[x].desc;
@@ -109,6 +133,7 @@ const editProject = (event) => {
     }
   }
 };
+
 
 const clearGetExistingValues = () => {
   getExistingValues = {};

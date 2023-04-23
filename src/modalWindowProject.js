@@ -24,7 +24,7 @@ export default () => {
   // When user clicks submit, submit the data
   submitButton.onclick = function () {
     modal.style.display = 'none';
-    // form.reset();
+    form.reset();
   };
 
   // When the user clicks anywhere outside of the modal, close it
