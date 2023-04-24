@@ -1,4 +1,6 @@
-import { attribute } from './projectFunctions';
+// import { attribute } from './projectFunctions';
+
+import Project from './projectFunctions';
 
 export default () => {
   // Get the modal
@@ -24,7 +26,7 @@ export default () => {
   }
 
   btn.onclick = function () {
-    if (attribute === '') {
+    if (Project.attribute === '') {
       alert('Select a project to add a Todo');
     } else {
       modal.style.display = 'block';

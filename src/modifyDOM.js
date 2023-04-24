@@ -1,22 +1,14 @@
-import getEditedInputs from './getEditedInputs';
+import Project from './projectFunctions';
 import modalWindowTodo from './modalWindowTodo';
-import {
-  getAllProjects,
-  addProject,
-  getSelectedProject,
-  addTodo,
-  locatedProject,
-  removeProject,
-} from './projectFunctions';
 import todoCollapsible from './todoCollapsible';
+import TodoEditor from './getEditedInputs';
 
-const projectsList = getAllProjects();
-
-const addDOMTodo = () => {
+const addDOMTodo = (event) => {
+  event.preventDefault();
   const todoContainer = document.getElementById('todo-container');
   todoContainer.innerHTML = '';
 
-  const projectTodos = locatedProject;
+  const projectTodos = Project.locatedProject;
   if (projectTodos.hasOwnProperty.call(projectTodos, 'todoItems') === false) {
     todoContainer.innerHTML = '';
     return;
@@ -66,10 +58,9 @@ const addDOMTodo = () => {
     todoParaDiv.appendChild(createTodoParaDesc);
     todoParaDiv.appendChild(createTodoParaDueDate);
     todoParaDiv.appendChild(createTodoParaPriority);
-    deleteBtn.addEventListener('click', removeProject);
+    deleteBtn.addEventListener('click', Project.removeProject);
     deleteBtn.addEventListener('click', addDOMTodo);
-    editBtn.addEventListener('click', getEditedInputs);
-    // editBtn.addEventListener('click', ed)
+    editBtn.addEventListener('click', TodoEditor.editTodo);
     todoParaDiv.appendChild(deleteBtn);
     todoParaDiv.appendChild(editBtn);
     todoParaDiv.appendChild(collapsibleBtn);
@@ -81,10 +72,9 @@ const addDOMTodo = () => {
     deleteBtn.setAttribute('data-id', projectTodos.todoItems[i].id);
     collapsibleBtn.setAttribute('data-id', deleteBtn.dataset.id);
     editBtn.setAttribute('data-id', deleteBtn.dataset.id);
-    console.log(projectsList);
+    console.log(Project.projects);
     collapsibleBtn.addEventListener('click', todoCollapsible);
     modalWindowTodo();
-    // modalWindowTodo()
   }
 };
 
@@ -92,7 +82,7 @@ const addDOMProject = () => {
   const projectDiv = document.getElementById('project-div');
   const createDiv = document.createElement('div');
   const createProjectPara = document.createElement('p');
-  createProjectPara.innerHTML = locatedProject.projName;
+  createProjectPara.innerHTML = Project.locatedProject.projName;
   projectDiv.innerHTML = '';
   createDiv.appendChild(createProjectPara);
   projectDiv.appendChild(createDiv);
@@ -112,29 +102,21 @@ const addDOMSidebarProject = (event) => {
   event.preventDefault();
   const createP = document.createElement('p');
   createP.setAttribute('class', 'project-p');
-  createP.addEventListener('click', getSelectedProject);
+  createP.addEventListener('click', Project.getSelectedProject);
   const projectsDiv = document.getElementById('all-projects');
-  if (projectsList.length !== 0) {
-    createP.innerHTML = projectsList[projectsList.length - 1].projName;
+  if (Project.projects.length !== 0) {
+    createP.innerHTML = Project.projects[Project.projects.length - 1].projName;
     projectsDiv.appendChild(createP);
-    createP.dataset.id = projectsList[projectsList.length - 1].id;
+    createP.dataset.id = Project.projects[Project.projects.length - 1].id;
     addProjectEvents();
   }
 };
 
-const addSubmitEvents = () => {
+export default () => {
   const submitBtnProject = document.getElementById('submit-project');
   const submitBtnTodo = document.getElementById('submit-todo');
-  submitBtnProject.addEventListener('click', addProject);
+  submitBtnProject.addEventListener('click', Project.addedProject);
   submitBtnProject.addEventListener('click', addDOMSidebarProject);
-  submitBtnTodo.addEventListener('click', addTodo);
+  submitBtnTodo.addEventListener('click', Project.addTodo);
   submitBtnTodo.addEventListener('click', addDOMTodo);
-};
-
-export {
-  addDOMSidebarProject,
-  addSubmitEvents,
-  addDOMProject,
-  addProjectEvents,
-  addDOMTodo,
 };

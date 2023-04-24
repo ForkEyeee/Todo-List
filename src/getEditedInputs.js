@@ -1,19 +1,21 @@
-import {
-  editProject,
-  getExistingValues,
-  clearGetExistingValues,
-} from './projectFunctions';
+import Project from './projectFunctions';
 
-export default function (event) {
-  if (event.target.getAttribute('id') === 'edit-btn') {
-    editProject(event);
-    document.getElementById('name-input').value = getExistingValues.proj;
-    document.getElementById('desc-input').value = getExistingValues.desc;
-    document.getElementById('date-input').value = getExistingValues.date;
-    document.getElementById('priority-input').value =
-      getExistingValues.priority;
-    document.getElementById('todo-name-input').value =
-      getExistingValues.todoName;
-    clearGetExistingValues();
+class TodoEditor {
+  static editTodo(event) {
+    if (event.target.getAttribute('id') === 'edit-btn') {
+      Project.editProject(event);
+      document.getElementById('name-input').value =
+        Project.getExistingValues.proj;
+      document.getElementById('desc-input').value =
+        Project.getExistingValues.desc;
+      document.getElementById('date-input').value =
+        Project.getExistingValues.date;
+      document.getElementById('priority-input').value =
+        Project.getExistingValues.priority;
+      document.getElementById('todo-name-input').value =
+        Project.getExistingValues.todoName;
+      Project.clearGetExistingValues();
+    }
   }
 }
+export default TodoEditor;
