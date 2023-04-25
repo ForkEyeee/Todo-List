@@ -12,6 +12,7 @@
   </head>
   <body>
     <div class="header">
+      <i class="fa-solid fa-check-double fa-2xl" style="color: #ffffff"></i>
       <h1>Todo List</h1>
     </div>
     <div class="main-content-wrapper">
@@ -75,6 +76,7 @@
                   name="todoname"
                   id="todo-name-input"
                   maxlength="50"
+                  placeholder="Enter your Todo Name"
                 />
                 <label for="projdesc">Todo Description</label>
                 <input
@@ -82,6 +84,7 @@
                   name="projdesc"
                   id="desc-input"
                   maxlength="130"
+                  placeholder="Enter your Todo Description"
                 />
                 <label for="projduedate">Todo Due Date</label>
                 <input
@@ -89,9 +92,11 @@
                   name="projduedate"
                   id="date-input"
                   max="9999-31-01"
+                  placeholder="Enter your Todo Due Date"
                 />
                 <label for="priority" class="form-label">Todo Priority</label>
                 <select name="priority" id="priority-input">
+                  <option value="" selected disabled>Enter your Todo Priority</option>
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
                   <option value="High">High</option>
