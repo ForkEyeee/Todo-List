@@ -7,6 +7,7 @@ body {
   max-height: 100vh;
   margin: 0;
   color: #333;
+  height: 100vh;
 }
 
 h1 {
@@ -23,6 +24,7 @@ p {
 
 .main-content-wrapper {
   display: flex;
+  height: 100%;
 }
 
 .header {
@@ -41,17 +43,18 @@ p {
   padding: 20px;
   width: 100vw;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   background-color: #f5f5f5;
   word-break: break-all;
   flex-direction: column;
+  overflow: scroll;
 }
 
 div#todo-container {
   display: flex;
   gap: 100px;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .card {
@@ -81,7 +84,7 @@ div#todo-container {
 .sidebar {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
   justify-content: flex-start;
   gap: 2rem;
   align-items: center;
@@ -95,6 +98,10 @@ div#todo-container {
 
 .sidebar-calendar {
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-around;
 }
 
 .sidebar-item {
@@ -197,6 +204,7 @@ div#addBtn {
   position: absolute;
   right: 50px;
   top: 120px;
+  cursor: pointer;
 }
 
 .modal-todo {
@@ -448,15 +456,38 @@ select:not(:last-of-type) {
 .project-p {
   display: inline-block;
   position: relative;
+  cursor: pointer;
 }
 
 .project-p:hover::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #FBBF24;
+  background-color: #fbbf24;
   cursor: pointer;
+}
+
+.footer {
+  flex: 0;
+  width: 2000px;
+  text-align: center;
+  color: rgb(228, 227, 227);
+  background-color: rgb(51, 47, 47);
+  padding: 15px;
+  cursor: default;
+}
+
+.fa-brands,
+.fab {
+  font-weight: 400;
+}
+.header h1 {
+  cursor: default;
+}
+
+.sidebar-projects > h2 {
+  cursor: default;
 }
