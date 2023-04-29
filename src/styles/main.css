@@ -491,3 +491,8 @@ select:not(:last-of-type) {
 .sidebar-projects > h2 {
   cursor: default;
 }
+
+div#all-projects {
+	display: flex;
+	flex-direction: column;
+}

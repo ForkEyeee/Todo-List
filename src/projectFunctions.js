@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import getUserInput from './getUserInput';
+import localStorage from './localStorage';
 
 class Project {
   constructor(projName) {
@@ -23,6 +24,7 @@ class Project {
     event.preventDefault();
     const getValues = getUserInput();
     Project.projects.push(new Project(getValues.proj));
+    localStorage.setLocalStorage()
     console.log(Project.projects);
   }
 
