@@ -5,105 +5,119 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webpack App</title>
-    <script src="https://kit.fontawesome.com/ee91009b7f.js" crossorigin="anonymous"></script>
-  <script defer src="bundle13ee4f9380f9db6f66e9.js"></script></head>
+    <script
+      src="https://kit.fontawesome.com/ee91009b7f.js"
+      crossorigin="anonymous"
+    ></script>
+  <script defer src="bundle7feb0729a92adcd1a7a6.js"></script></head>
   <body>
     <div class="header">
+      <i class="fa-solid fa-check-double fa-2xl" style="color: #ffffff"></i>
       <h1>Todo List</h1>
     </div>
     <div class="main-content-wrapper">
-        <div class="sidebar">
-          <div class="sidebar-calendar">
-            <div class="sidebar-item">
-            <i class="fa-solid fa-calendar-day"></i>
-             <p>Today</p> 
-            </div>
-            <div class="sidebar-item">
-              <i class="fa-solid fa-calendar-week"></i>
-              <p>This week</p>
-            </div>
-            <div class="sidebar-item">
-              <i class="fa-regular fa-calendar-days"></i>
-              <p>This month</p>
+      <div class="sidebar">
+        <!-- <div class="sidebar-calendar">
+          
+            <i class="fa-solid fa-calendar-day">Today</i>
+            <p></p> 
+          
+          
+            <i class="fa-solid fa-calendar-week">This week</i>
+          
+          
+            <i class="fa-regular fa-calendar-days">This month</i>
+          
+        </div> -->
+        <div class="sidebar-projects">
+          <h2>Projects</h2>
+          <div id="all-projects"></div>
+          <div class="sidebar-item" id="addBtn">
+            <i class="fa-solid fa-plus fa-beat"></i>
+            <div>Add a project</div>
+          </div>
+          <div id="myModal" class="modal" style="display: none">
+            <div class="modal-content">
+              <span class="close">x</span>
+              <div>
+                <form action="" method="get" class="modal-flex" id="form-div">
+                  <label for="projname">Project Name</label>
+                  <input
+                    type="text"
+                    name="projname"
+                    id="name-input"
+                    maxlength="30 "
+                  />
+
+                  <div class="btn-flex">
+                    <button id="submit-project">Submit</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="sidebar-projects">
-            <h2>Projects</h2>
-            <div class="sidebar-item">
-              <i class="fa-solid fa-diagram-project"></i>
-              <p>Projects</p>
-            </div>
-            <div class="sidebar-item">
-              <i class="fa-solid fa-plus fa-beat"></i>
-              <p>Add a project</p>
+        </div>
+
+        <div id="myModalTodo" class="modal-todo">
+          <div class="modal-content-todo">
+            <span class="close-todo">x</span>
+            <div>
+              <form
+                action=""
+                method="get"
+                class="modal-flex"
+                id="form-div-todo"
+              >
+                <label for="todoname">Todo Name</label>
+                <input
+                  type="text"
+                  name="todoname"
+                  id="todo-name-input"
+                  maxlength="50"
+                  placeholder="Enter your Todo Name"
+                />
+                <label for="projdesc">Todo Description</label>
+                <input
+                  type="text"
+                  name="projdesc"
+                  id="desc-input"
+                  maxlength="130"
+                  placeholder="Enter your Todo Description"
+                />
+                <label for="projduedate">Todo Due Date</label>
+                <input
+                  type="date"
+                  name="projduedate"
+                  id="date-input"
+                  max="9999-31-01"
+                  placeholder="Enter your Todo Due Date"
+                />
+                <label for="priority" class="form-label">Todo Priority</label>
+                <select name="priority" id="priority-input">
+                  <option value="" selected disabled>
+                    Enter your Todo Priority
+                  </option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </select>
+                <div class="btn-flex">
+                  <button id="submit-todo">Submit</button>
+                </div>
+              </form>
             </div>
           </div>
-             
-      </div>
-      <div id="card-container">
-        <div class="inputs">
-          <form method="POST" id="form">
-            <label for="input-title" class="form-label">Title</label>
-            <input
-              type="text"
-              id="input-title"
-              name="title"
-              value=""
-              placeholder="Enter the title"
-              maxlength="100"
-              required
-            />
-            <label for="desc" class="form-label">Description</label>
-            <input
-              type="text"
-              id="input-desc"
-              name="desc"
-              value=""
-              placeholder="Enter the description"
-              maxlength="30"
-              required
-            />
-            <label for="due-date" class="form-label">Due Date</label>
-            <input
-              type="date"
-              id="input-date"
-              name="due-date"
-              value=""
-              placeholder="Enter the due date"
-              maxlength="5"
-              required
-            />
-            <label for="priority" class="form-label">Low</label>
-            <input
-              type="radio"
-              id="input-priority"
-              name="priority"
-              value="Low"
-              placeholder="Select priority"
-            />
-            <label for="priority" class="form-label">Medium</label>
-            <input
-              type="radio"
-              id="input-priority"
-              name="priority"
-              value="Medium"
-              placeholder="Select priority"
-            />
-            <label for="priority" class="form-label">High</label>
-            <input
-              type="radio"
-              id="input-priority"
-              name="priority"
-              value="High"
-              placeholder="Select priority"
-            />
-          <button type="submit" id="submit-btn">Add a Project</button>
-          </form>
-        
-      </div>
         </div>
       </div>
-
+      <div id="card-container">
+        <div class="fa-solid fa-plus fa-beat" id="add-todo">Open Todo</div>
+        <div id="project-div"></div>
+        <div id="todo-container"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <!-- <a href="https://github.com/ForkEyeee" target="_blank"> -->
+      ForkEyeee - The Odin Project 2023
     </div>
   </body>
 </html>
