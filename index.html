@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpack App</title>
+    <script src="https://kit.fontawesome.com/ee91009b7f.js" crossorigin="anonymous"></script>
+  <script defer src="bundle13ee4f9380f9db6f66e9.js"></script></head>
+  <body>
+    <div class="header">
+      <h1>Todo List</h1>
+    </div>
+    <div class="main-content-wrapper">
+        <div class="sidebar">
+          <div class="sidebar-calendar">
+            <div class="sidebar-item">
+            <i class="fa-solid fa-calendar-day"></i>
+             <p>Today</p> 
+            </div>
+            <div class="sidebar-item">
+              <i class="fa-solid fa-calendar-week"></i>
+              <p>This week</p>
+            </div>
+            <div class="sidebar-item">
+              <i class="fa-regular fa-calendar-days"></i>
+              <p>This month</p>
+            </div>
+          </div>
+          <div class="sidebar-projects">
+            <h2>Projects</h2>
+            <div class="sidebar-item">
+              <i class="fa-solid fa-diagram-project"></i>
+              <p>Projects</p>
+            </div>
+            <div class="sidebar-item">
+              <i class="fa-solid fa-plus fa-beat"></i>
+              <p>Add a project</p>
+            </div>
+          </div>
+             
+      </div>
+      <div id="card-container">
+        <div class="inputs">
+          <form method="POST" id="form">
+            <label for="input-title" class="form-label">Title</label>
+            <input
+              type="text"
+              id="input-title"
+              name="title"
+              value=""
+              placeholder="Enter the title"
+              maxlength="100"
+              required
+            />
+            <label for="desc" class="form-label">Description</label>
+            <input
+              type="text"
+              id="input-desc"
+              name="desc"
+              value=""
+              placeholder="Enter the description"
+              maxlength="30"
+              required
+            />
+            <label for="due-date" class="form-label">Due Date</label>
+            <input
+              type="date"
+              id="input-date"
+              name="due-date"
+              value=""
+              placeholder="Enter the due date"
+              maxlength="5"
+              required
+            />
+            <label for="priority" class="form-label">Low</label>
+            <input
+              type="radio"
+              id="input-priority"
+              name="priority"
+              value="Low"
+              placeholder="Select priority"
+            />
+            <label for="priority" class="form-label">Medium</label>
+            <input
+              type="radio"
+              id="input-priority"
+              name="priority"
+              value="Medium"
+              placeholder="Select priority"
+            />
+            <label for="priority" class="form-label">High</label>
+            <input
+              type="radio"
+              id="input-priority"
+              name="priority"
+              value="High"
+              placeholder="Select priority"
+            />
+          <button type="submit" id="submit-btn">Add a Project</button>
+          </form>
+        
+      </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
