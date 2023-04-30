@@ -3,8 +3,10 @@ import modalWindowTodo from './modalWindowTodo';
 import todoCollapsible from './todoCollapsible';
 import TodoEditor from './getEditedInputs';
 
-const addDOMTodo = (event) => {
+export const addDOMTodo = (event) => {
+  if (event !== undefined) {
   event.preventDefault();
+  }
   const todoContainer = document.getElementById('todo-container');
   todoContainer.innerHTML = '';
 
@@ -98,8 +100,10 @@ const addProjectEvents = () => {
   });
 };
 
-const addDOMSidebarProject = (event) => {
-  event.preventDefault();
+export const addDOMSidebarProject = (event) => {
+  if (Project.attribute !== '') {
+    event.preventDefault();
+  }
   const createP = document.createElement('p');
   createP.setAttribute('class', 'project-p');
   createP.addEventListener('click', Project.getSelectedProject);

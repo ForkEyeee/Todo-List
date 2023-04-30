@@ -1,31 +1,64 @@
 import Project from './projectFunctions';
+import { addDOMSidebarProject } from './modifyDOM';
 
 class localStorage {
-  static getLocalStorage = () => {
-    const localStorageArray = [];
-    for (let i = 0; i <= localStorage.length; i += 1) {
-      for (let x = 0; x <= Project.projects.length; x += 1) {
-        if (window.localStorage.length !== 0) {
-          const value = window.localStorage.getItem(Project.projects[x].projName);
-          localStorageArray.push(value);
-					console.log(localStorageArray)
-        } else {
-          break;
-        }
+  static key = '';
+
+  static value = '';
+
+  static getLocalStorage(projects, event) {
+    const storedProjects = [];
+
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const key = window.localStorage.key(i);
+      const value = window.localStorage.getItem(key);
+      if (value) {
+        const project = JSON.parse(value);
+        storedProjects.push({ key, project });
       }
     }
-    return localStorageArray;
-  };
 
-  static setLocalStorage() {
-    for (let i = 0; i < Project.projects.length; i += 1) {
-      const key = Project.projects[i].projName;
-      const value = Project.projects[i].id;
-      console.log(`${key}: ${value}`);
-      window.localStorage.setItem(key, value);
+    storedProjects.sort((a, b) =>
+      a.project.projName.localeCompare(b.project.projName)
+    );
+
+    storedProjects.forEach((storedProject) => {
+      Project.addedProject(
+        event,
+        storedProject.key,
+        JSON.stringify(storedProject.project)
+      );
+      addDOMSidebarProject();
+    });
+
+    console.log(projects);
+  }
+
+  static setLocalStorage(projects) {
+    projects.sort((a, b) => a.projName.localeCompare(b.projName));
+
+    for (let i = 0; i < projects.length; i += 1) {
+      this.key = projects[i].projName;
+      this.value = JSON.stringify(projects[i]);
+      console.log(`${this.key}: ${this.value}`);
+      window.localStorage.setItem(this.key, this.value);
     }
   }
 }
+
+// const localStorageArray = [];
+// for (let i = 0; i <= localStorage.length; i += 1) {
+//   for (let x = 0; x <= projects.length; x += 1) {
+//     if (window.localStorage.length !== 0) {
+//       const value = window.localStorage.getItem(projects[x].projName);
+//       localStorageArray.push(value);
+//       console.log(localStorageArray);
+//     } else {
+//       break;
+//     }
+//   }
+// }
+// return localStorageArray;
 
 export default localStorage;
 
