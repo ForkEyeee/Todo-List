@@ -493,6 +493,6 @@ select:not(:last-of-type) {
 }
 
 div#all-projects {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
