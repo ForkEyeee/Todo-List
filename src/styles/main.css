@@ -472,7 +472,7 @@ select:not(:last-of-type) {
 
 .footer {
   flex: 0;
-  width: 2000px;
+  width: 100vw;
   text-align: center;
   color: rgb(228, 227, 227);
   background-color: rgb(51, 47, 47);
