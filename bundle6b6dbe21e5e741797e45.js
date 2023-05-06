@@ -128,7 +128,6 @@ var localStorage = /*#__PURE__*/function () {
         _projectFunctions__WEBPACK_IMPORTED_MODULE_0__["default"].addedProject(event, storedProject.key, JSON.stringify(storedProject.project));
         (0,_modifyDOM__WEBPACK_IMPORTED_MODULE_1__.addDOMSidebarProject)();
       });
-      console.log(projects);
     }
   }, {
     key: "setLocalStorage",
@@ -140,35 +139,19 @@ var localStorage = /*#__PURE__*/function () {
       for (var i = 0; i < projects.length; i += 1) {
         this.key = projects[i].projName;
         this.value = JSON.stringify(projects[i]);
-        console.log("".concat(this.key, ": ").concat(this.value));
         window.localStorage.setItem(this.key, this.value);
       }
     }
   }]);
 
   return localStorage;
-}(); // const localStorageArray = [];
-// for (let i = 0; i <= localStorage.length; i += 1) {
-//   for (let x = 0; x <= projects.length; x += 1) {
-//     if (window.localStorage.length !== 0) {
-//       const value = window.localStorage.getItem(projects[x].projName);
-//       localStorageArray.push(value);
-//       console.log(localStorageArray);
-//     } else {
-//       break;
-//     }
-//   }
-// }
-// return localStorageArray;
-
+}();
 
 _defineProperty(localStorage, "key", '');
 
 _defineProperty(localStorage, "value", '');
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (localStorage); // Project.projects.find(
-// 	(project) => project.id === Project.locatedProject.id
-// });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (localStorage);
 
 /***/ }),
 
@@ -232,7 +215,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _projectFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projectFunctions */ "./src/projectFunctions.js");
-// import { attribute } from './projectFunctions';
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
   // Get the modal
@@ -375,7 +357,6 @@ var addDOMTodo = function addDOMTodo(event) {
     deleteBtn.setAttribute('data-id', projectTodos.todoItems[i].id);
     collapsibleBtn.setAttribute('data-id', deleteBtn.dataset.id);
     editBtn.setAttribute('data-id', deleteBtn.dataset.id);
-    console.log(_projectFunctions__WEBPACK_IMPORTED_MODULE_0__["default"].projects);
     collapsibleBtn.addEventListener('click', _todoCollapsible__WEBPACK_IMPORTED_MODULE_2__["default"]);
     (0,_modalWindowTodo__WEBPACK_IMPORTED_MODULE_1__["default"])();
   }
@@ -493,23 +474,11 @@ var Project = /*#__PURE__*/function () {
             Project.locatedProject = JSON.parse(Project.locatedProject);
             Project.projects[i].todoItems = Project.locatedProject.todoItems;
             Project.locatedProject.id = Project.attribute;
-            console.log(Project.locatedProject);
-            console.log(i);
-            console.log(Project.projects);
             (0,_modifyDOM__WEBPACK_IMPORTED_MODULE_2__.addDOMTodo)();
             break;
           }
         }
-      } // else {
-      //   for (let u = 0; u <= Project.projects.length; u++) {
-      //     if (Project.projects[u].id === value) {
-      //       Project.locatedProject = Project.projects[u];
-      //       break;
-      //     }
-      //   }
-      //   Project.attribute = value;
-      // }
-
+      }
     }
   }, {
     key: "getTodoLocalStorage",
@@ -568,8 +537,6 @@ var Project = /*#__PURE__*/function () {
           Project.isEditMode = false;
           Project.editTodoId = null;
         }
-      } else {
-        console.log('Project not found');
       }
     }
   }, {
@@ -1480,4 +1447,4 @@ _localStorage__WEBPACK_IMPORTED_MODULE_1__["default"].getLocalStorage(_projectFu
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle774fb4f5b9cd8899d7c6.js.map
+//# sourceMappingURL=bundle6b6dbe21e5e741797e45.js.map
