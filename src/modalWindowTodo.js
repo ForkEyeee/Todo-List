@@ -1,5 +1,3 @@
-// import { attribute } from './projectFunctions';
-
 import Project from './projectFunctions';
 
 export default () => {

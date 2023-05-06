@@ -30,8 +30,6 @@ class localStorage {
       );
       addDOMSidebarProject();
     });
-
-    console.log(projects);
   }
 
   static setLocalStorage(projects) {
@@ -40,29 +38,9 @@ class localStorage {
     for (let i = 0; i < projects.length; i += 1) {
       this.key = projects[i].projName;
       this.value = JSON.stringify(projects[i]);
-      console.log(`${this.key}: ${this.value}`);
       window.localStorage.setItem(this.key, this.value);
     }
   }
 }
 
-// const localStorageArray = [];
-// for (let i = 0; i <= localStorage.length; i += 1) {
-//   for (let x = 0; x <= projects.length; x += 1) {
-//     if (window.localStorage.length !== 0) {
-//       const value = window.localStorage.getItem(projects[x].projName);
-//       localStorageArray.push(value);
-//       console.log(localStorageArray);
-//     } else {
-//       break;
-//     }
-//   }
-// }
-// return localStorageArray;
-
 export default localStorage;
-
-// Project.projects.find(
-// 	(project) => project.id === Project.locatedProject.id
-
-// });

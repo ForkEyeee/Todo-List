@@ -48,23 +48,11 @@ class Project {
           Project.locatedProject = JSON.parse(Project.locatedProject);
           Project.projects[i].todoItems = Project.locatedProject.todoItems;
           Project.locatedProject.id = Project.attribute;
-          console.log(Project.locatedProject);
-          console.log(i);
-          console.log(Project.projects);
           addDOMTodo();
           break;
         }
       }
     }
-    // else {
-    //   for (let u = 0; u <= Project.projects.length; u++) {
-    //     if (Project.projects[u].id === value) {
-    //       Project.locatedProject = Project.projects[u];
-    //       break;
-    //     }
-    //   }
-    //   Project.attribute = value;
-    // }
   }
 
   static getTodoLocalStorage() {}
@@ -127,8 +115,6 @@ class Project {
         Project.isEditMode = false;
         Project.editTodoId = null;
       }
-    } else {
-      console.log('Project not found');
     }
   }
 

@@ -6,8 +6,8 @@ import modalWindowTodo from './modalWindowTodo';
 import Project from './projectFunctions'; // Import Project class
 import { addDOMTodo } from './modifyDOM';
 
-localStorage.getLocalStorage(Project.projects)
-addDOMTodo()
+localStorage.getLocalStorage(Project.projects);
+addDOMTodo();
 modifyDOM();
 modalWindowProject();
 modalWindowTodo();

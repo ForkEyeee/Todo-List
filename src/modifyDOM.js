@@ -5,7 +5,7 @@ import TodoEditor from './getEditedInputs';
 
 export const addDOMTodo = (event) => {
   if (event !== undefined) {
-  event.preventDefault();
+    event.preventDefault();
   }
   const todoContainer = document.getElementById('todo-container');
   todoContainer.innerHTML = '';
@@ -74,7 +74,6 @@ export const addDOMTodo = (event) => {
     deleteBtn.setAttribute('data-id', projectTodos.todoItems[i].id);
     collapsibleBtn.setAttribute('data-id', deleteBtn.dataset.id);
     editBtn.setAttribute('data-id', deleteBtn.dataset.id);
-    console.log(Project.projects);
     collapsibleBtn.addEventListener('click', todoCollapsible);
     modalWindowTodo();
   }
